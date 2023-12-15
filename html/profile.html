@@ -5,45 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>profile</title>
-    <link rel="stylesheet" href="../css/sitterList.css">
+    <link rel="stylesheet" href="../css/profile.css">
 </head>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
-
-    #profile-form {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    #profile-form label {
-        display: block;
-        margin-bottom: 8px;
-    }
-
-    #profile-form input,
-    #profile-form textarea {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 16px;
-        box-sizing: border-box;
-    }
-
-    #profile-form button {
-        background-color: #4caf50;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    #edit-form {
-        display: none;
-    }
-</style>
 <div id="header"></div>
     <script>
         async function fetchHtmlAsText(url) {
@@ -57,7 +20,6 @@
     </script>
 <body>
     <header>
-        
         <div class="icon">
             <div class="search">
                 <i class="fas fa-search"></i>
@@ -83,37 +45,15 @@
     </nav>
 
     <main>
-
-        <body>
-
-            <h1>My Information</h1>
-        
-            <div id="profile-form">
-                <label for="profile-picture">프로필 사진 업로드:</label>
-                <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
-        
-                <label for="email">이메일:</label>
-                <input type="email" id="email" name="email" required>
-        
-                <label for="password">비밀번호:</label>
-                <input type="password" id="password" name="password" required>
-        
-                <label for="name">이름:</label>
-                <input type="text" id="name" name="name" required>
-        
-                <label for="bio">자기소개:</label>
-                <textarea id="bio" name="bio" rows="4"></textarea>
-        
-                <button id="save-profile" onclick="saveProfile()">프로필 저장</button>
-                <button id="edit-profile" onclick="editProfile()">프로필 수정</button>
-                <button id="delete-profile" onclick="deleteProfile()">프로필 삭제</button>
-            </div>
-        
+        <article>
+            <h1>email</h1>
+            <section>rustacean@5-23.dev</section>
+        </article>
     </main>
 
     <footer id="footer">
     </footer>
-
+    <script src="../js/navbar.js"></script>
     <script>
         async function fetchHtmlAsText(url) {
             return await (await fetch(url)).text();
