@@ -1,8 +1,9 @@
-let token;
-token = localStorage.getItem("accessToken");
+
+let reviewServer="http://localhost:3000/api/users/"
+
 
 function getSitterList(){
-    fetch("http://localhost:3000/api/users/",{
+    fetch(reviewServer,{
         method: "GET",
         headers: {//로그인마다 바꿔줘야함
             "Authorization": `Bearer ${token}`,
@@ -31,13 +32,13 @@ function getSitterList(){
                      sitterAverageGrade=sitterGrade/e.review_for_sitters.length
                 }
                 else{
-                    sitterAverageGrade="리뷰없음"
+                    sitterAverageGrade=0;
                 }
 
                 sitterListParent.appendChild(sitterChild);
 
                 sitterChild.innerHTML=`
-                <article>
+                <article onclick="movePage(${e.id})">
                     <section id="profile">
                         <img src="../img/test.png">
                     </section>
@@ -54,7 +55,6 @@ function getSitterList(){
                 </article>
                 `
             }
-           
         })
     })
     .catch(()=>{
@@ -62,7 +62,10 @@ function getSitterList(){
     })
 }
 
-
+function movePage(id){
+    location.href=`review.html?sitterId=${id}`;
+    
+}
 
 
 getMyInformation();

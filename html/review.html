@@ -27,10 +27,11 @@
     </div>
 </header>
 <nav>
-    <a href="">sign-up</a>
-    <a href="">sign-in</a>
-    <a href="">book</a>
-    <a href="">review</a>
+    <a id="sitterListPageLogOut" href="">log-out</a>
+    <a id="sitterListPageSignUp" href="">sign-up</a>
+    <a id="sitterListPageSignIn" href="">sign-in</a>
+    <a id="sitterListPageBook" href="">book</a>
+    <a id="sitterListPageReview" href="">review</a>
 </nav>
 
 
@@ -51,8 +52,8 @@
         <div class="sitter">
             <div class="sitter-box">
                 <div>
-                    <h3>박동훈 훈련사</h3>
-                    <p>
+                    <h3 id="sitterName">박동훈 훈련사</h3>
+                    <p id="sitterDescription">
                         지금 우리의 옆에 같이 있는 가족 반려견 우리 아이들에 대해
                         얼마나 알고 계신가요? 서로를 위해 우리 아이들은 우리들의
                         옆에 정말 가까이 있습니다. 가까이 있으면서 문제가 생기기는
@@ -62,8 +63,7 @@
                     </p>
                     <button>예약하기</button>
                 </div>
-                <div class="sitter-img">
-                    <img src="../img/profile1.png">
+                <div class="sitter-img" id="sitterThumbnail">
                 </div>
 
             </div>
@@ -134,6 +134,7 @@
         importPage('footer');
     </script>
     <script src="../js/navbar.js"></script>
+    <script src="../js/sitterProfile.js"></script>
 </body>
 
 </body>
