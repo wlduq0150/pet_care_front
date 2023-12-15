@@ -4,44 +4,77 @@ body {
     padding: 0;
 }
 
-header, nav, main {
-    padding: 20px;
-}
-
-header, nav {
-    background-color: #f0f0f0;
-    text-align: center;
-}
-
 nav {
     font-weight: bold;
 }
 
+.subtitle_box {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.subtitle_box h1 {
+    color: #a179ff;
+    font-weight: bold;
+}
+
 main {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.reservation-box {
-    background-color: #fff; /* 배경색 추가 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+/* .reservation-box {
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 10px;
     padding: 15px;
     width: 80%;
     height: 160px;
     box-sizing: border-box;
     position: relative;
-    text-align: left; /* 텍스트 정렬 수정 */
+    text-align: left;
+} */
+
+.reservation-box {
+    margin: 10px;
+    width: 80%;
+    height: 160px;
+    box-sizing: border-box;
+    position: relative;
+    text-align: left; 
+
+    /* display: flex;
+    gap: 20px; */
+
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #fff;
+    border: solid 1px var(--primary);
+    box-shadow: 0 5px 0 var(--primary);
+    transition: all .5s;
+    transition-timing-function: cubic-bezier(0.11, 0.69, 0.21, 2);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 0 var(--primary);
+    }
 }
 
 .profile-pic {
     width: 125px;
     height: 125px;
-    background-color: #ccc; /* 회색 */
-    margin-right: 10px;
+    margin-right: 12px;
     float: left;
+    
+
+    >img {
+        width: 100%;
+        border-radius: 12px;
+    }
 }
 
 .name {
@@ -50,21 +83,19 @@ main {
     font-size: 24px; /* 폰트 사이즈 키우기 */
 }
 
-.requirements, .date {
-    font-size: 16px; /* 폰트 사이즈 키우기 */
-    margin-bottom: 10px;
-}
-
 .date {
+    font-size: 18px; /* 폰트 사이즈 키우기 */
+    font-weight: bold;
+    margin-bottom: 10px;
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 25px;
 }
 
 .buttons {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 20px;
 }
 
 .buttons button {
@@ -76,13 +107,23 @@ main {
 }
 
 .buttons button.review {
-    background-color: #3498db; /* 파란색 */
+    background-color: var(--primary); /* 파란색 */
     color: #fff; /* 흰색 */
     border: none;
+    font-weight: bold;
+}
+
+.buttons button.review:hover {
+    background-color: #7948ea;
 }
 
 .buttons button.delete {
-    background-color: #e74c3c; /* 빨간색 */
+    background-color: #ef8074; /* 빨간색 */
     color: #fff; /* 흰색 */
     border: none;
+    font-weight: bold;
+}
+
+.buttons button.delete:hover {
+    background-color: #f1422f;
 }

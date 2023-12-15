@@ -3,26 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/sitter-list.css">
+    <link rel="stylesheet" href="../css/book-list.css">
 </head>
 <body>
 
     <header>
-        <div>헤더글씨</div>
+        <div class="icon">
+            <div class="plus-option">
+                <i class="fas fa-keyboard"></i>
+                <i class="fas fa-microphone"></i>
+            </div>
+        </div>
+        <img src="../img/logo.svg">
+        <div id="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
-
     <nav>
-        네비게이션바라고 적어줘
+        <a href="">sign-up</a>
+        <a href="">sign-in</a>
+        <a href="">book</a>
+        <a href="">review</a>
     </nav>
+    <div id="header">
+    </div>
+    <script>
+        async function fetchHtmlAsText(url) {
+            return await (await fetch(url)).text();
+        }
 
+        async function importPage(target) {
+            document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+        }
+        importPage('header');
+    </script>
+
+    <div class="subtitle_box">
+        <h1>예약 목록</h1>
+    </div>
     <main>
-
+        
         <!-- 다른 예약 박스들도 추가할 수 있음 -->
     </main>
 
     <!-- <script src="https://unpkg.com/jsonwebtoken@8.5.1"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/navbar.js"></script>
     <script src="../js/constants.js"></script>
-    <script src="../js/sitter-list.js"></script>
+    <script src="../js/book-list.js"></script>
 </body>
 </html>

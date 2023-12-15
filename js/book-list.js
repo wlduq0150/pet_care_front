@@ -41,11 +41,13 @@ const addBookToScrren = (book) => {
     div.classList.add("reservation-box");
     div.id = book.id;
 
+    const date_ = book.date.split("-")[0] + "년 " + book.date.split("-")[1] + "월 " + book.date.split("-")[2].slice(0,2) + "일";
+
     div.innerHTML=`
-        <div class="profile-pic"></div>
+        <div class="profile-pic"><img src="../img/test.png"></div>
         <div class="name">${book.sitter.name}</div>
         <div class="requirements">${book.requirement}</div>
-        <div class="date">${book.date.slice(0, 10)}</div>
+        <div class="date">${date_}</div>
         <div class="buttons">
             <button class="review">리뷰</button>
             <button class="delete" onClick="deleteBook(${book.id})()">삭제</button>

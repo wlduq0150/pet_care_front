@@ -118,7 +118,13 @@ const loadSitter = async () => {
         curSitter = sitter.id;
         console.log(response.data);
     } catch (err) {
+        console.log(err);
         const response = err.response;
+
+        if (!response) {
+            alert("네트워크 에러");
+            return;
+        }
 
         if (response.status === 401) {
             alert("로그인이 필요합니다.");
@@ -162,6 +168,11 @@ const onBook = async () => {
         
     } catch (err) {
         const response = err.response;
+
+        if (!response) {
+            alert("네트워크 에러");
+            return;
+        }
 
         if (response.status === 401) {
             alert("로그인이 필요합니다.");
