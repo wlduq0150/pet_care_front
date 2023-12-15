@@ -32,14 +32,16 @@ const signupBox = document.getElementById("signupBox");
 const signupSubmit = document.getElementById("signupSubmit");
 
 
-signupSubmit.addEventListener("click", (event) => {
+
+signupSubmit.addEventListener("click", async (event) => {
     event.preventDefault();
-    const userName = signupBox.name.value;
-    const userEmail = signupBox.email.value;
-    const userPassword = signupBox.password.value;
-    const userCheckPassword = signupBox.checkPassword.value;
-    const userExperience = signupBox.experience.value;
-    const userDiscription = signupBox.discription.value;
+    const userThumbnail = document.querySelector('.imgUpload').value;
+    const userName = document.getElementById("nameField").name.value;
+    const userEmail = document.getElementById("emailField").value;
+    const userPassword = document.getElementById("passwordField").value;
+    const userCheckPassword = document.getElementById("passwordCheckField").value;
+    const userExperience = document.getElementById("experienceField").value;
+    const userDiscription = document.getElementById("discriptionField").value;
     let userRole = "sitter";
     let userType = "large";
 
@@ -67,20 +69,40 @@ signupSubmit.addEventListener("click", (event) => {
         userType = "small";
     }
 
-    fetch("http://localhost:3000/api/auth/signup", {
+    // try {
+    //     const response = await fetch("http://localhost:3000/api/auth/signup", {
+    //     method: "POST",
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //         name: userName,
+    //         email: userEmail, 
+    //         password: userPassword,
+    //         checkPassword: userCheckPassword,
+    //         role: userRole,
+    //         experience: userExperience,
+    //         type: userType,
+    //         discription: userDiscription,
+    //         thumbnail: userThumbnail
+    //     })
+    // })
+    // } catch (err) {
+    //     console.log(err);
+    // }
+    const formData = new FormData();
+    const imagefile = document.querySelector(".imgUpload");
+    formData.append("thumbnail", imagefile.files[0]);
+    const response = await fetch(server + "/api/image/upload", {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "multipart/form-data",
         },
-        body: JSON.stringify({
-            name: userName,
-            email: userEmail, 
-            password: userPassword,
-            checkPassword: userCheckPassword,
-            role: userRole,
-            experience: userExperience,
-            type: userType,
-            discription: userDiscription
-          })
-    })
+        body: formData,
+    });
+    if (!response.ok) {
+        throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    console.log(data);
 });
