@@ -1,8 +1,10 @@
+let token;
+token = localStorage.getItem("accessToken");
 function getMyInformation(){
     fetch(" http://localhost:3000/api/users/me",{
         method: "GET",
-        headers: {
-           // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE3MDI2MDQyMjgsImV4cCI6MTcwMjYxMTQyOH0.O1fWsYDESrdo6J380rWQrSnprKxFEyjB_DkIgxwWpWQ",
+        headers: {//로그인마다 바꿔줘야함
+            "Authorization": `Bearer ${token}`,
           },
     })
     .then(response=>{
@@ -31,8 +33,8 @@ function getMyInformation(){
 function getSitterList(){
     fetch(" http://localhost:3000/api/users/",{
         method: "GET",
-        headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE3MDI2MDQyMjgsImV4cCI6MTcwMjYxMTQyOH0.O1fWsYDESrdo6J380rWQrSnprKxFEyjB_DkIgxwWpWQ",
+        headers: {//로그인마다 바꿔줘야함
+            "Authorization": `Bearer ${token}`,
           },
     })
     .then(response=>{
