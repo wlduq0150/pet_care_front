@@ -1,0 +1,71 @@
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: "Pretendard" !important;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.sitter {
+    width: 100%;
+    padding: 16px;
+    background-color: #C6A0F6;
+}
+
+.review {
+    width: 100%;
+    padding: 16px;
+    min-height: 400px;
+    background-color: #B7BDF8;
+}
+
+.list-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+    >.book {
+        width: 100%;
+        & thead {
+            & th {            
+               padding: 4px;
+            }
+            & th:first-child {    
+                width: 30%;
+            }
+            & th:nth-child(2) {    
+                width: 10%;
+            }
+            & th:nth-child(3) {    
+                width: 50%;
+            }
+            & th:last-child {    
+                width: 10%;
+            }
+        }
+        & tbody {
+            & td { 
+               padding: 4px;
+            }
+            & th:first-child {    
+                width: 20%;
+            }
+            & th:nth-child(2) {    
+                width: 10%;
+            }
+            & th:nth-child(3) {    
+                width: 60%;
+            }
+            & th:last-child {    
+                width: 10%;
+            }
+        }
+
+    }
+}
+
+

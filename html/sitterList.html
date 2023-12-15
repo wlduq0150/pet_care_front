@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>sitterList</title>
+    <link rel="stylesheet" href="../css/sitterList.css">
+</head>
+
+<body>
+    <header>
+        <div class="icon">
+            <div class="search">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <div class="plus-option">
+                <i class="fas fa-keyboard"></i>
+                <i class="fas fa-microphone"></i>
+            </div>
+        </div>
+        <img src="../img/logo.svg">
+        <div id="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <nav>
+        <a id="sitterListPageSignUp" href="">sign-up</a>
+        <a id="sitterListPageSignIn" href="">sign-in</a>
+        <a id="sitterListPageBook" href="">book</a>
+        <a id="sitterListPageReview" href="">review</a>
+    </nav>
+    <div id="header">
+    </div>
+    <script>
+        async function fetchHtmlAsText(url) {
+            return await (await fetch(url)).text();
+        }
+
+        async function importPage(target) {
+            document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+        }
+        importPage('header');
+    </script>
+    <main>
+        <div class="list" id="sitterListP">
+            
+        </div>
+    </main>
+
+    <footer id="footer">
+    </footer>
+</body>
+
+<script>
+    async function fetchHtmlAsText(url) {
+        return await (await fetch(url)).text();
+    }
+
+    async function importPage(target) {
+        document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+    }
+    importPage('footer');
+</script>
+
+<script>
+    let n = document.querySelector("nav");
+    n.setAttribute("class", "hidden");
+
+    document.querySelector("#menu").addEventListener("click", () => {
+        if (n.getAttribute("class") === "hidden") {
+            n.setAttribute("class", "visible");
+        } else {
+            n.setAttribute("class", "hidden");
+        }
+    });
+</script>
+<script src="../js/sitterList.js" type="module"></script>
+</html>
