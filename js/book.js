@@ -4,7 +4,6 @@ let currentYear = currentDate.getFullYear();
 
 let selectedDate;
 let curSitter;
-let token;
 
 
 const onLoginLoad = () => {
@@ -164,7 +163,7 @@ const onBook = async () => {
         }
 
         alert("예약 성공");
-
+        location.href = "book-list.html";
         
     } catch (err) {
         const response = err.response;
