@@ -22,11 +22,26 @@ article {
         font-size: 30px;
         text-transform: uppercase;
     }
-    > section{
+    > form{
+        display: flex;
+        justify-content: space-between;
         width: 100%;
         background-color: #EFF1F5;
-        padding: 10px;
-        border-radius: 10px 0 0 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        > input[type="submit"]{
+            padding: 10px 15px;
+            background-color: var(--primary);
+            border: 0;
+            border-radius: 10px;
+        }
+        
+        > input[type="submit"]{
+            padding: 10px 15px;
+            background-color: var(--primary);
+            border: 0;
+            border-radius: 10px;
+        }
     }
 
     &:hover {
