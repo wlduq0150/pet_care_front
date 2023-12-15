@@ -26,8 +26,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff50;
-    backdrop-filter: blur(10px);
+    background-color: #ffffff;
+    /* backdrop-filter: blur(10px); */
     color: #fff;
     padding: 0 50px;
 

@@ -3,3 +3,10 @@
     padding: 16px;
     background-color: #C6A0F6;
 }
+
+.card img {
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 3 / 4;
+}
