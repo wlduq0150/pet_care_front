@@ -18,11 +18,26 @@ body {
     outline-color: #c6a0f6;
 }
 
-.item:nth-child(1) {
+.thumbnailUpload {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 9;
+    margin-right: 20px;
+}
+
+.showThumbnail {
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+}
+
+.imgUploadButton {
+    width: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    background-color: #c6a0f6;
 }
 
 .signupDataName {
@@ -36,6 +51,16 @@ body {
     height: 30px;
     width: 300px;
     border-radius: 5px;
+}
+
+.submitPlace {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 20px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 9;
+    grid-row-end: 10;
 }
 
 .signupSubmit {
