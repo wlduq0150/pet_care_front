@@ -1,5 +1,3 @@
-let token;
-
 const onLoginLoad = () => {
     token = localStorage.getItem("accessToken");
 

@@ -53,7 +53,8 @@ function notSingin(){
     document.getElementById("sitterListPageSignIn").style.display="block";
     document.getElementById("sitterListPageBook").style.display="none";
     document.getElementById("sitterListPageReview").style.display="none";
-    console.log("로그인 안됨");
+    alert("로그인 안됨");
+    location.href="signin.html";
 }
 
 
