@@ -9,8 +9,6 @@ document.querySelector("#menu").addEventListener("click", () => {
     }
 });
 
-
-
 let token;
 token = localStorage.getItem("accessToken");
 
@@ -23,12 +21,12 @@ logOut.addEventListener("click",()=>{
 function getMyInformation(){
     fetch("http://localhost:3000/api/users/me",{
         method: "GET",
-        headers: {//로그인마다 바꿔줘야함
+        headers: {
             "Authorization": `Bearer ${token}`,
           },
     })
     .then(response=>{
-       //로그인 됬다는 함수 호출
+       
         return response.json();
     })
     .then(data=>{

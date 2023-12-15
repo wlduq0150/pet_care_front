@@ -15,26 +15,29 @@ function getSitterList(){
     }).
     then(data=>{
         data.data.map((e)=>{
-            let sitterListParent= document.getElementById("sitterListP")
-            let sitterChild =document.createElement("div");
-            sitterListParent.appendChild(sitterChild);
-            sitterChild.innerHTML=`
-            <article>
-                <section id="profile">
-                    <img src="../img/test.png">
-                </section>
-                <section id="description">
-                    <div id="user">
-                        <h1>${e.name}</h1>
-                        <h2>~대충 시터설명~</h2>
-                    </div>
-                    <div id="info">
-                        <div><img src="../img/pet.svg">${e.experience}</div>
-                        <div><img src="../img/star.svg">평점</div>
-                    </div>
-                </section>
-            </article>
-            `
+            if(e.role=="sitter"){
+                let sitterListParent= document.getElementById("sitterListP")
+                let sitterChild =document.createElement("div");
+                sitterListParent.appendChild(sitterChild);
+                sitterChild.innerHTML=`
+                <article>
+                    <section id="profile">
+                        <img src="../img/test.png">
+                    </section>
+                    <section id="description">
+                        <div id="user">
+                            <h1>${e.name}</h1>
+                            <h2>~대충 시터설명~</h2>
+                        </div>
+                        <div id="info">
+                            <div><img src="../img/pet.svg">${e.experience}</div>
+                            <div><img src="../img/star.svg">평점</div>
+                        </div>
+                    </section>
+                </article>
+                `
+            }
+           
         })
     })
     .catch(()=>{
@@ -42,16 +45,11 @@ function getSitterList(){
     })
 }
 
-function clickLogOut(){
-   let logOut =document.getElementById("sitterListPageLogOut");
-   logOut.addEventListener("click",()=>{
-    console.log("hi");
-   })
-}
+
+
 
 
 getMyInformation();
 
 getSitterList();
 
-clickLogOut();
