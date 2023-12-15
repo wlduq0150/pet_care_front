@@ -16,6 +16,7 @@ header {
 main {
     margin: 20px;
     text-align: center;
+    margin-top: 100px;
 }
 
 table {
@@ -38,7 +39,7 @@ th {
     background-color: #ddd;
 }
 
-a {
+table a {
     text-decoration: none; /* 날짜의 밑줄 없애기 */
     color: #000; /* 텍스트를 검은색으로 변경 */
     display: block;
