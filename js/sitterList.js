@@ -12,16 +12,28 @@ function getSitterList(){
         return response.json();
     }).
     then(data=>{
-        console.log(data.data.length);
+       // console.log(data.data.length);
         data.data.map((e)=>{
            // for(let i=0;i<data.data.lenthg;i++)
             if(e.role=="sitter"){
                 let sitterListParent= document.getElementById("sitterListP")
                 let sitterChild =document.createElement("div");
-               
-                let sitterGrade= sitterAverageGrade(e.id);
+                let sitterGrade=0;
+                let sitterAverageGrade;
                 
-              //  console.log(sitterGrade);
+                e.review_for_sitters.map((el)=>{
+                   // console.log(el.grade);
+                    sitterGrade+=el.grade;
+                });
+                
+                if(sitterGrade>=1){
+                   // console.log(sitterGrade);
+                     sitterAverageGrade=sitterGrade/e.review_for_sitters.length
+                }
+                else{
+                    sitterAverageGrade="리뷰없음"
+                }
+
                 sitterListParent.appendChild(sitterChild);
 
                 sitterChild.innerHTML=`
@@ -36,7 +48,7 @@ function getSitterList(){
                         </div>
                         <div id="info">
                             <div><img src="../img/pet.svg">${e.experience}</div>
-                            <div><img src="../img/star.svg">${sitterGrade}</div>
+                            <div><img src="../img/star.svg">${sitterAverageGrade}</div>
                         </div>
                     </section>
                 </article>
@@ -50,14 +62,6 @@ function getSitterList(){
     })
 }
 
- async function sitterAverageGrade (sitterId){
-  const resp=await fetch(`http://localhost:3000/api/reviews/sitter/grade/${sitterId}`,{
-        method: "GET",
-    })
-    
-    console.log(resp);
-    return resp;
-}
 
 
 
