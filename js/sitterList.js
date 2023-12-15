@@ -1,37 +1,10 @@
+
+
 let token;
 token = localStorage.getItem("accessToken");
-function getMyInformation(){
-    fetch(" http://localhost:3000/api/users/me",{
-        method: "GET",
-        headers: {//로그인마다 바꿔줘야함
-            "Authorization": `Bearer ${token}`,
-          },
-    })
-    .then(response=>{
-        yesSiginin();//로그인 됬다는 함수 호출
-        document.getElementById("sitterListPageSignUp").style.display="none";
-        document.getElementById("sitterListPageSignIn").style.display="none";
-        document.getElementById("sitterListPageBook").style.display="block";
-        document.getElementById("sitterListPageReview").style.display="block";
-        return response.json();
-    })
-    .then(data=>{
-    
-    console.log(data.data.name);
-   
-    })
-    .catch(()=>{
-        document.getElementById("sitterListPageSignUp").style.display="block";
-        document.getElementById("sitterListPageSignIn").style.display="block";
-        document.getElementById("sitterListPageBook").style.display="none";
-        document.getElementById("sitterListPageReview").style.display="none";
-        notSingin();
-       
-    })
-}
 
 function getSitterList(){
-    fetch(" http://localhost:3000/api/users/",{
+    fetch("http://localhost:3000/api/users/",{
         method: "GET",
         headers: {//로그인마다 바꿔줘야함
             "Authorization": `Bearer ${token}`,
@@ -69,17 +42,16 @@ function getSitterList(){
     })
 }
 
-
-
-function notSingin(){
-    console.log("로그인 안됨");
+function clickLogOut(){
+   let logOut =document.getElementById("sitterListPageLogOut");
+   logOut.addEventListener("click",()=>{
+    console.log("hi");
+   })
 }
 
-function yesSiginin(){
-    console.log("로그인됨");
-}
 
 getMyInformation();
 
 getSitterList();
 
+clickLogOut();
