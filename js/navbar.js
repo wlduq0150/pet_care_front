@@ -1,8 +1,10 @@
-async function fetchHtmlAsText(url) {
-        return await (await fetch(url)).text();
-    }
+let n = document.querySelector("nav");
+n.setAttribute("class", "hidden");
 
-    async function importPage(target) {
-        document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+document.querySelector("#menu").addEventListener("click", () => {
+    if (n.getAttribute("class") === "hidden") {
+        n.setAttribute("class", "visible");
+    } else {
+        n.setAttribute("class", "hidden");
     }
-    importPage('footer');
+});
