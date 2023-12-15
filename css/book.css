@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    height: 60px; /* 높이를 크게 조정 */
+}
+
+main {
+    margin: 20px;
+    text-align: center;
+}
+
+table {
+    width: 70%; /* 달력의 크기는 70% */
+    border-collapse: collapse;
+    margin: 20px auto; /* 가운데 정렬 */
+    background-color: #ffe6cc; /* 연한 주황색 배경색 */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    height: 60px;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle; /* 수직 가운데 정렬 */
+    width: 14.28%; /* 달력의 각 요일별 칸의 크기를 동일하게 */
+}
+
+th {
+    background-color: #ddd;
+}
+
+a {
+    text-decoration: none; /* 날짜의 밑줄 없애기 */
+    color: #000; /* 텍스트를 검은색으로 변경 */
+    display: block;
+    height: 100%; /* 칸 전체에 적용하기 위해 높이 100%로 설정 */
+}
+
+a.selected {
+    background-color: #ff6600; /* 선택 날짜 칸의 색을 진한 주황색으로 변경 */
+    color: #fff;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    resize: none; /* 크기 조정 가능하도록 설정 */
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #ff6600; /* 진한 주황색 */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; /* 인라인 블록 요소로 변경 */
+}
+
+.require_box {
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.nav-label {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.month_button {
+    background-color: #ff8a47;
+}
+
+.date_span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

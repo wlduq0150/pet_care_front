@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, nav, main {
+    padding: 20px;
+}
+
+header, nav {
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+nav {
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.reservation-box {
+    background-color: #fff; /* 배경색 추가 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    margin: 10px;
+    padding: 15px;
+    width: 80%;
+    height: 160px;
+    box-sizing: border-box;
+    position: relative;
+    text-align: left; /* 텍스트 정렬 수정 */
+}
+
+.profile-pic {
+    width: 125px;
+    height: 125px;
+    background-color: #ccc; /* 회색 */
+    margin-right: 10px;
+    float: left;
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 24px; /* 폰트 사이즈 키우기 */
+}
+
+.requirements, .date {
+    font-size: 16px; /* 폰트 사이즈 키우기 */
+    margin-bottom: 10px;
+}
+
+.date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.buttons button {
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-right: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+
+.buttons button.review {
+    background-color: #3498db; /* 파란색 */
+    color: #fff; /* 흰색 */
+    border: none;
+}
+
+.buttons button.delete {
+    background-color: #e74c3c; /* 빨간색 */
+    color: #fff; /* 흰색 */
+    border: none;
+}

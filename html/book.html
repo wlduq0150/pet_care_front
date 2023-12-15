@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/book.css">
+</head>
+<body>
+
+    <header>
+        <div>헤더글씨</div>
+    </header>
+
+    <main>
+        <button class="month_button" onclick="prevMonth()">이전 달</button>
+        <button class="month_button" onclick="nextMonth()">다음 달</button>
+        <div class="nav-label" id="navLabel"></div>
+        <table id="calendar"></table>
+
+        <div class="require_box">
+            <label for="requirements">요구사항</label>
+            <textarea id="requirements" rows="4"></textarea>
+            <button onclick="onBook()">예약하기</button>
+        </div>
+        
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/constants.js"></script>
+    <script src="../js/book.js"></script>
+
+</body>
+</html>
