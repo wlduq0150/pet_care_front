@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/signup.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="../img/Group_3.svg">
+        <div class="profile"></div>
+    </header>
+    <form class="signupBox">
+        <div class="signupDataName">name</div>
+        <input type="text" class="signupDataField" placeholder="name">
+        <div class="signupDataName">email</div>
+        <input type="text" class="signupDataField" placeholder="example@email.com">
+        <div class="signupDataName">password</div>
+        <input type="text" class="signupDataField" placeholder="password">
+        <div class="signupDataName">password check</div>
+        <input type="text" class="signupDataField" placeholder="password check">
+        <div class="signupDataName">role</div>
+        <div class="signupDataChoice">
+            <div>
+                <input type="checkbox" name="role" value="sitter" onclick="checkRole(this)"> sitter
+            </div>
+            <div>
+                <input type="checkbox" name="role" value="customer" onclick="checkRole(this)"> customer
+            </div>
+        </div>
+        <div class="signupDataName">experience</div>
+        <input type="text" class="signupDataField" placeholder="experience">
+        <div class="signupDataName">type</div>
+        <div class="signupDataChoice">
+            <div>
+                <input type="checkbox" name="type" value="large" onclick="checkType(this)"> large
+            </div>
+            <div>
+                <input type="checkbox" name="type" value="medium" onclick="checkType(this)"> medium
+            </div>
+            <div>
+                <input type="checkbox" name="type" value="small" onclick="checkType(this)"> small
+            </div>
+        </div>
+        <button type="submit" class="signupSubmit">signup</button>
+    </form>
+</body>
+</html>
