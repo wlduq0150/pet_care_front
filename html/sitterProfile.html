@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>sitterList</title>
+    <link rel="stylesheet" href="../css/sitterList.css">
+</head>
+
+<body>
+    <div id="header">
+    </div>
+
+    <script>
+        async function fetchHtmlAsText(url) {
+            return await (await fetch(url)).text();
+        }
+
+        async function importPage(target) {
+            document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+        }
+        importPage('header');
+    </script>
+    <main>
+
+        <footer id="footer">
+        </footer>
+
+        <script>
+            async function fetchHtmlAsText(url) {
+                return await (await fetch(url)).text();
+            }
+            async function importPage(target) {
+                document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+            }
+            importPage('footer');
+        </script>
+</body>
+
+</html>
