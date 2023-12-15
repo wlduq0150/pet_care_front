@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/review.css">
+    <link rel="stylesheet" href="../css/global.css">
     <title></title>
 </head>
 <header>
@@ -48,78 +49,68 @@
     </script>
     <main>
         <h2>우리 아이들의 마음을 이해하고 치유해드려요</h2>
-        <div class="sitter">
-            <div class="sitter-box">
-                <div>
-                    <h3>박동훈 훈련사</h3>
-                    <p>
-                        지금 우리의 옆에 같이 있는 가족 반려견 우리 아이들에 대해
-                        얼마나 알고 계신가요? 서로를 위해 우리 아이들은 우리들의
-                        옆에 정말 가까이 있습니다. 가까이 있으면서 문제가 생기기는
-                        일은 당연한 일입니다. 가까운 사이 일수록 더욱 지치기도 쉽고
-                        다투기도 잦습니다. 저는 우리 아이들에게 그리고 보호자님에게
-                        서로의 마음으로 하는 소통의 창을 열어드리고자 합니다.
-                    </p>
-                    <button>예약하기</button>
+        <div class="rv-container sitter-box">
+            <h3 class="name"> 박동훈 훈련사</h3>
+            <div class="content">
+                <div class="discription">
+                    지금 우리의 옆에 같이 있는 가족 반려견 우리 아이들에 대해
+                    얼마나 알고 계신가요? 서로를 위해 우리 아이들은 우리들의
+                    옆에 정말 가까이 있습니다. 가까이 있으면서 문제가 생기기는
+                    일은 당연한 일입니다. 가까운 사이 일수록 더욱 지치기도 쉽고
+                    다투기도 잦습니다. 저는 우리 아이들에게 그리고 보호자님에게
+                    서로의 마음으로 하는 소통의 창을 열어드리고자 합니다.
                 </div>
-                <div class="sitter-img">
-                    <img src="../img/profile1.png">
-                </div>
-
+                <img src="../img/profile1.png">
+            </div>
+            <div class="footer">
+                <button class="button">예약하기</button>
             </div>
         </div>
-        <div class="review">
-            <div class="book-box">
-                <table class="book">
-                    <thead>
-                        <th>예약일정</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2023-12-15 ~ 2023-12-30</td>
-                        </tr>
-                        <tr>
-                            <td>2023-12-15 ~ 2023-12-30</td>
-                        </tr>
-                        <tr>
-                            <td>2023-12-15 ~ 2023-12-30</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div style="display: flex; gap: 20px;">
+            <div class="rv-container schedule">
+                <div class="title">예약일정</div>
+                <div class="content">
+                    <div class="sh-item">
+                        <span class="name">이민*</span> 2023-12-15 ~ 17
+                    </div>
+                    <div class="sh-item">
+                        <span class="name">이상*</span> 2023-12-20 ~ 21
+                    </div>
+                    <div class="sh-item">
+                        <span class="name">김민*</span> 2023-12-23 ~ 28
+                    </div>
+                </div>
             </div>
-            <div class="review-box">
-                <div class="list-container">
-                    <!-- 여기 <table> 써서 하세여 -->
-                    <table class="user">
-                        <thead>
-                            <tr>
-                                <th>사용자 이름</th>
-                                <th>리뷰</th>
-                                <th>평점</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-
-                                <td>이민형</td>
-                                <td>너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</td>
-                                <td>4.5</td>
-                            </tr>
-                            <tr>
-                                <td>이민형</td>
-                                <td>너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</td>
-                                <td>4.5</td>
-                            </tr>
-                            <tr>
-                                <td>이민형</td>
-                                <td>너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</td>
-                                <td>4.5</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="rv-container" style="flex:1">
+                <div class="review-box">
+                    <div class="review-list">
+                        <div class="review">
+                            <div class="review-inner">
+                                <div class="name">이민정</div>
+                                <div class="content">너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</div>
+                                <div class="star">⭐ 4.5</div>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="review-inner">
+                                <div class="name">김아무개</div>
+                                <div class="content">너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</div>
+                                <div class="star">⭐ 4.5</div>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="review-inner">
+                                <div class="name">박아무개</div>
+                                <div class="content">너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</div>
+                                <div class="star">⭐ 4.5</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        
     </main>
 
     <footer id="footer"></footer>
