@@ -86,7 +86,7 @@ const writeReview = (bookId) => {
         }
 
         try {
-            const response = await axios.post(server + "/reviews", {
+            const response = await axios.post(server + "/api/reviews", {
                 sitterId,
                 comment,
                 grade
@@ -104,6 +104,7 @@ const writeReview = (bookId) => {
             alert("리뷰 작성 완료!");
         } catch (err) {
             const response = err.response;
+            console.log(response);
 
             if (response.status === 401) {
                 alert("로그인이 필요합니다.");
