@@ -1,5 +1,3 @@
-let getSitterServer="http://localhost:3000/api/users/"
-
 const queryParams = new URLSearchParams(window.location.search);
 const sitterId = queryParams.get('sitterId');
 
@@ -11,7 +9,7 @@ clickBook.addEventListener("click",()=>{
 
 
 function getSitter(){
-    fetch(`${getSitterServer}${sitterId}`,{
+    fetch(`${server}/api/users/${sitterId}`,{
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`,
