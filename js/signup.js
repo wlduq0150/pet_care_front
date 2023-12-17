@@ -159,7 +159,7 @@ signupSubmit.addEventListener("click", async (event) => {
                 role: userRole,
                 experience: userExperience,
                 type: userType,
-                discription: userDiscription,
+                description: userDiscription,
                 thumbnail: uploadedImage
             })
         });
