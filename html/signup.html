@@ -4,56 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/signup.css">
-    <title>Document</title>
+    <title>Signup</title>
 </head>
 <body>
-    <form class="signupBox">
-        <div class="thumbnailUpload">
-            <input type="file" class="imgUpload" accept="image/*" required style="display: none;" onchange="showImgFile(this)">
-            <div class="showThumbnail">
-                <img id="preview" />
+    <main>
+        <header>
+            <div class="icon">
+                <div class="search">
+                    <i class="fas fa-search"></i>
+                </div>
+    
+                <div class="plus-option">
+                    <i class="fas fa-keyboard"></i>
+                    <i class="fas fa-microphone"></i>
+                </div>
             </div>
-            <div class="imgUploadButton">image upload</div>
-        </div>
-        <div class="signupDataName">name</div>
-        <input type="text" name="name" id="nameField" class="signupDataField" placeholder="name">
-        <div class="signupDataName">email</div>
-        <input type="text" name="email" id="emailField" class="signupDataField" placeholder="example@email.com">
-        <div class="signupDataName">password</div>
-        <input type="password" name="password" id="passwordField" class="signupDataField" placeholder="password">
-        <div class="signupDataName">password check</div>
-        <input type="password" name="passwordCheck" id="passwordCheckField" class="signupDataField" placeholder="password check">
-        <div class="signupDataName">role</div>
-        <div class="signupDataChoice">
-            <div>
-                <input type="checkbox" name="role" id="sitterCheck" value="sitter" checked="checked" onclick="checkRole(this)"> sitter
+            <img src="../img/logo.svg">
+            <div id="menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <div>
-                <input type="checkbox" name="role" id="customerCheck" value="customer" onclick="checkRole(this)"> customer
+        </header>
+        <nav>
+            <a href="">sign-up</a>
+            <a href="">sign-in</a>
+            <a href="">book</a>
+            <a href="">review</a>
+        </nav>
+
+        <h1>회원가입</h1>
+    
+        <form class="signupBox">
+            <div class="thumbnailUpload">
+                <input type="file" class="imgUpload" accept="image/*" required style="display: none;" onchange="showImgFile(this)">
+                <div class="showThumbnail">
+                    <img id="preview" />
+                </div>
+                <div class="imgUploadButton">image upload</div>
             </div>
-        </div>
-        <div id="experienceName" class="signupDataName">experience</div>
-        <input type="text" name="experience" id="experienceField" class="signupDataField" placeholder="experience">
-        <div id="typeName" class="signupDataName">type</div>
-        <div id="typeSelect" class="signupDataChoice">
-            <div>
-                <input type="checkbox" name="type" id="largeCheck" value="large" checked="checked" onclick="checkType(this)"> large
+            <div class="signupDataName">name</div>
+            <input type="text" name="name" id="nameField" class="signupDataField" placeholder="name">
+            <div class="signupDataName">email</div>
+            <input type="text" name="email" id="emailField" class="signupDataField" placeholder="example@email.com">
+            <div class="signupDataName">password</div>
+            <input type="password" name="password" id="passwordField" class="signupDataField" placeholder="password">
+            <div class="signupDataName">password check</div>
+            <input type="password" name="passwordCheck" id="passwordCheckField" class="signupDataField" placeholder="password check">
+            <div class="signupDataName">role</div>
+            <div class="signupDataChoice">
+                <div class="checkboxAlign">
+                    <input type="checkbox" name="role" id="sitterCheck" value="sitter" checked="checked" onclick="checkRole(this)"> <label for="sitterCheck"></label>
+                    <div class="checkboxData">sitter</div>
+                </div>
+                <div class="checkboxAlign">
+                    <input type="checkbox" name="role" id="customerCheck" value="customer" onclick="checkRole(this)"> <label for="customerCheck"></label>
+                    <div class="checkboxData">customer</div>
+                </div>
             </div>
-            <div>
-                <input type="checkbox" name="type" id="mediumCheck" value="medium" onclick="checkType(this)"> medium
+            <div id="experienceName" class="signupDataName">experience</div>
+            <input type="text" name="experience" id="experienceField" class="signupDataField" placeholder="experience">
+            <div id="typeName" class="signupDataName">type</div>
+            <div id="typeSelect" class="signupDataChoice">
+                <div class="checkboxAlign">
+                    <input type="checkbox" name="type" id="largeCheck" value="large" checked="checked" onclick="checkType(this)"> <label for="largeCheck"></label>
+                    <div class="checkboxData">large</div>
+                </div>
+                <div class="checkboxAlign">
+                    <input type="checkbox" name="type" id="mediumCheck" value="medium" onclick="checkType(this)"> <label for="mediumCheck"></label>
+                    <div class="checkboxData">medium</div>
+                </div>
+                <div class="checkboxAlign">
+                    <input type="checkbox" name="type" id="smallCheck" value="small" onclick="checkType(this)"> <label for="smallCheck"></label>
+                    <div class="checkboxData">small</div>
+                </div>
             </div>
-            <div>
-                <input type="checkbox" name="type" id="smallCheck" value="small" onclick="checkType(this)"> small
+            <div class="signupDataName">discription</div>
+            <input type="text" name="discription" id="discriptionField" class="signupDataField" placeholder="discription">
+            <div class="submitPlace">
+                <button type="submit" id="signupSubmit" class="signupSubmit">signup</button>
             </div>
-        </div>
-        <div class="signupDataName">discription</div>
-        <input type="text" name="discription" id="discriptionField" class="signupDataField" placeholder="discription">
-        <div class="submitPlace">
-            <button type="submit" id="signupSubmit" class="signupSubmit">signup</button>
-        </div>
-    </form>
-</body>
+        </form>
+    </main>
+    <footer id="footer">
+    </footer>
+    <script src="../js/navbar.js"></script>
+    <script>
+        async function fetchHtmlAsText(url) {
+            return await (await fetch(url)).text();
+        }
+
+        async function importPage(target) {
+            document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+        }
+        importPage('footer');
+    </script>
     <script src="../js/constants.js"></script>
     <script type="text/javascript" src="../js/signup.js"></script>
+</body>
 </html>

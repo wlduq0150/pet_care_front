@@ -18,7 +18,7 @@ function checkRole(element) {
     
     if(roleCheckSitter.checked) {
         document.getElementById("experienceName").style="display:block; margin-left:20px; height:30px; width:120px;";
-        document.getElementById("experienceField").style="display:block; align-items:center; height:30px; width:300px; border-radius:5px;";
+        document.getElementById("experienceField").style="display:block; align-items:center; height:30px; width:300px; border-radius:10px;";
         document.getElementById("typeName").style="display:block margin-left:20px; height:30px; width:120px;";
         document.getElementById("typeSelect").style="display:block display:grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; height: 30px; width: 300px;";
     }
