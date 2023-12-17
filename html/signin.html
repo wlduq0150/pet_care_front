@@ -5,17 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/signin.css">
-    <title>Document</title>
+    <title>회원가입</title>
+    <head>
+    <script>
+        async function fetchHtmlAsText(url) {
+            return await (await fetch(url)).text();
+        }
+        async function importPage(target) {
+            document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+        }
+        importPage('header');
+    </script>
+    </head>
 </head>
 <body>
-    <div id = "signinBox" class="signinBox">
-        <form id = "signinDataBox" class="signinDataBox">
-            <input type="text" name="email" id="emailField" class="signinDataField" placeholder="example@email.com">
-            <input type="password" name="password" id="passwordField" class="signinDataField" placeholder="password">
-            <button type="submit" id="signupButton" class="signupButton">signup</button>
-        </form>
-        <button type="submit" id="signinButton" class="signinButton">signin</button>
+    <div class="container">
+        <article>
+            <div class="signin-box">
+                <form id = "signinDataBox" class="signinDataBox">
+                        <input type="text" name="email" id="email-field" placeholder="example@email.com">
+                        <input type="password" name="password" id="password-field" placeholder="password">         
+                    <div>
+                        <button type="submit" id="signupButton" class="signupButton">회원가입</button>
+                        <button type="submit"  id="signinButton" class="signinButton">로그인</button>
+                    </div>
+                </form>
+                
+            </div>
+        </article>
     </div>
 </body>
     <script type="text/javascript" src="../js/signin.js"></script>
+    <script src="../js/navbar.js"></script>
 </html>
