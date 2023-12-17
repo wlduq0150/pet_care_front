@@ -41,7 +41,7 @@ function getSitterList(){
                     <section id="description">
                         <div id="user">
                             <h1>${e.name}</h1>
-                            <h2>~대충 시터설명~</h2>
+                            <h2>${e.description}</h2>
                         </div>
                         <div id="info">
                             <div><img src="../img/pet.svg">${e.experience}</div>

@@ -76,7 +76,7 @@ main {
 .sitterName {
     font-weight: bold;
     margin-bottom: 5px;
-    text-align: right;
+    text-align: center;
     font-size: 22px; /* 폰트 사이즈 키우기 */
 }
 
@@ -111,7 +111,7 @@ main {
 }
 
 .buttons button.review:hover {
-    background-color: #7948ea;
+    background-color: #7227e2;
 }
 
 .buttons button.delete {

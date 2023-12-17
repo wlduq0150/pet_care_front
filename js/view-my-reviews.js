@@ -1,27 +1,37 @@
-//리뷰 목록 (리뷰 전체보기 페이지)
+//내가 쓴 리뷰 목록 (리뷰 전체보기 페이지)
+const queryParams = new URLSearchParams(window.location.search);
+const myId = queryParams.get('myId');
+
 
 function getReviews(){
-    fetch(`${server}/api/reviews/`,{
+    fetch(`${server}/api/reviews/myReviews`,{
          method: "GET",
+         headers: {
+            "Authorization": `Bearer ${token}`,
+          },
      })
      .then(response=>{
          return response.json();
      }).
      then(data =>{
+        
          data.data.map((e)=>{
             const main = document.querySelector("main");
             const reviewChild = document.createElement("div");
             reviewChild.classList.add("reservation-box");
-          //  let reviswsParent=document.getElementById("reviswsParent");
-          //  let newChildElement = document.createElement("div");
+            reviewChild.id=`${e.id}`;
+
             main.appendChild(reviewChild);
             reviewChild.innerHTML = `
             
-            <span class="userName" id="reviewUserName">${e.userName}님 ></span>
+            <span class="userName" id="reviewUserName">${e.user_reviews.name}님 ></span>
             <span  id="reviewUserGrade">⭐${+e.grade}개</span>
             <div class="requirements" id="reviewUserComment">${e.comment}</div>
-            <div class="sitterName" >펫시터: ${e.sitterName}</div>
-          
+            <div class="sitterName" >펫시터: ${e.sitter_reviews.name}</div>
+              <div class="buttons">
+            <button class="review" onClick="updateReview(${e.id})">수정</button>
+            <button class="delete" onClick="deleteReview(${e.id})">삭제 </button>
+            </div>
             `;
           
          })
@@ -40,25 +50,70 @@ function getReviews(){
      .then((response) => response.json())
      .then((result) => console.log(result));
  }
- 
+/*
+const updateReview= (reviewId)=>{
+    return async ()=>{
+        try{
+            const response= await axios.put(server+"api/reviews/"+reviewId,{
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                  },
+                  body:{
+                    userId:3,
+                    comment:"싫어요",
+                    grade:4,
+                  },
+            });
+
+            return response.data;
+        }catch(err){
+            const response = err.response;
+
+            if (response.status === 401) {
+                alert("로그인이 필요합니다.");
+                return;
+            }
+        }
+    }
+}
+*/
+function updateReview(reviewId){
+    fetch(`${server}/api/reviews/${reviewId}`,{
+        method:"PUT",
+        headers: {
+            "Authorization": `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            //userId: 3,
+            comment: "싫어요",
+            grade:5,
+        }),
+    })
+    .then(response=>{
+        
+        return response.json();
+    }).
+    then(data =>{
+
+        console.log(data);
+    })
+}
+
+function deleteReview(reviewId){
+    fetch(`${server}/api/reviews/${reviewId}`,{
+        method:"DELETE",
+        headers:{
+            "Authorization": `Bearer ${token}`,
+        },
+    })
+    .then(response=>{
+        return response.json();
+    })
+    .then(data=>{
+        console.log(data);
+    })
+}
+
+
  getReviews();
 
-/*
- div.innerHTML=`
-        <div class="profile-pic"><img src="../img/test.png"></div>
-        <div class="name">${book.sitter.name}</div>
-        <div class="requirements">${book.requirement}</div>
-        <div class="date">${date_}</div>
-        <div class="buttons">
-            <button class="review">리뷰</button>
-            <button class="delete" onClick="deleteBook(${book.id})()">삭제</button>
-        </div>
-    `
-*/
-
-/*
-  <div class="buttons">
-            <button class="review">리뷰</button>
-            <button class="delete" onClick="deleteBook(${book.id})()">삭제</button>
-        </div>
-*/

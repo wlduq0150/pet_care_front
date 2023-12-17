@@ -101,13 +101,14 @@ main {
     }
     
     > .content{
-        display: flex;
+        
+       width: 100%;
         font-size: 24px;
         font-weight: 500;
         > img{
             max-width: 350px;
             max-height: 250px;
-
+            
             border-radius: 15px;
             margin-left: 20px;
         }
