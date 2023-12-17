@@ -231,3 +231,20 @@ article {
         color: white;
     }
 }
+
+.info-wrapper{
+    --gap: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    > div{
+        display: flex;
+        gap: var(--gap);
+    }
+}
+
+footer{
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+}
