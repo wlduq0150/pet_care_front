@@ -1,62 +1,104 @@
-body {
+.container {
+    width: 100vw;
+    height: 100vh;
+
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.signinBox {
+.signin-box {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    margin-top: 125px;
-    width: 750px;
-    height: 400px;
     border-radius: 15px;
     outline-style: solid;
     outline-color: #c6a0f6;
+
+    width: 100%;
+    aspect-ratio: 5 / 3;
+
+    padding-left: 60px;
+    padding-right: 60px;
+
+    & button {
+        aspect-ratio: 9 / 2;
+
+        border-radius: 20px;
+        border: 2px solid #ccc;
+
+        cursor: pointer;
+
+        background-color: #c6a0f6;     
+        
+        font-size: 20px;
+
+        color: white;
+
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            background-color: white;
+            color: #c6a0f6;
+        }
+    }
 }
 
 .signinDataBox {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 120px;
-    width: 300px;
-}
-
-.signinDataField {
     align-items: center;
-    height: 30px;
-    width: 300px;
-    border-radius: 5px;
-}
+    gap: 30px;
 
-.signupButton {
-    height: 25px;
-    width: 60px;
+    width: 50%;
+
+    & > input {
+        width: 100%;
+        outline: none;
+        padding: 12px 15px;
+        font-size: 20px;
+
+        border-radius: 15px;
+    }
+
+    & button {
+        width: 90%;
+    }
 }
 
 .signinButton {
-    justify-content: space-evenly;
-    align-items: center;
-    height: 150px;
-    width: 200px;
-    border-radius: 10px;
+    width: 40%;
 }
+
 article {
-    padding: 20px;
+    width: 50%;
+    aspect-ratio: 5 / 3;
     border-radius: 15px;
-    width: 360px;
     background-color: #fff;
     border: solid 1px var(--primary);
     box-shadow: 0 5px 0 var(--primary);
     transition: all .5s;
     transition-timing-function: cubic-bezier(0.11, 0.69, 0.21, 2);
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     > h1{
         font-size: 22px;
         margin-bottom: 10px;
         text-transform: uppercase;
         font-weight: 600;
+    }
+}
+
+form > div {
+    display: flex;
+    gap: 100px;
+    > button{
+        white-space: nowrap;
+        padding: 10px 50px;
     }
 }
