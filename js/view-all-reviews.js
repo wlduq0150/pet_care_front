@@ -12,8 +12,7 @@ function getReviews(){
             const main = document.querySelector("main");
             const reviewChild = document.createElement("div");
             reviewChild.classList.add("reservation-box");
-          //  let reviswsParent=document.getElementById("reviswsParent");
-          //  let newChildElement = document.createElement("div");
+          
             main.appendChild(reviewChild);
             reviewChild.innerHTML = `
             
