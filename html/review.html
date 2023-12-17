@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/review.css">
+    <link rel="stylesheet" href="../css/global.css">
     <title></title>
 </head>
 <header>
@@ -49,47 +50,37 @@
     </script>
     <main>
         <h2>우리 아이들의 마음을 이해하고 치유해드려요</h2>
-        <div class="sitter">
-            <div class="sitter-box">
-                <div>
-                    <h3 id="sitterName"></h3>
-                    <p id="sitterDescription">
-                       
-                    </p>
-                    <button id="bookThisSitter">예약하기</button>
+
+        <div class="rv-container sitter-box">
+            <h3 class="name" id="sitterName"> </h3>
+            <div class="content">
+                <div class="discription" id="sitterDescription">
                 </div>
                 <div class="sitter-img" id="sitterThumbnail">
                 </div>
-
+            </div>
+            <div class="footer">
+                <button class="button" id="bookThisSitter">예약하기</button>
             </div>
         </div>
-        <div class="review">
-            <div class="book-box">
-                <table class="book">
-                    <thead>
-                        <th>예약일정</th>
-                    </thead>
-                    <tbody id="bookedDay">
-                    </tbody>
-                </table>
+        <div style="display: flex; gap: 20px;">
+            <div class="rv-container schedule">
+                <div class="title">예약일정</div>
+                <div class="content"  id="bookedDay">
+                </div>
             </div>
-            <div class="review-box">
-                <div class="list-container">
-                    <!-- 여기 <table> 써서 하세여 -->
-                    <table class="user">
-                        <thead>
-                            <tr>
-                                <th>사용자 이름</th>
-                                <th>리뷰</th>
-                                <th>평점</th>
-                            </tr>
-                        </thead>
-                        <tbody id="allSitterReviews">
-                        </tbody>
-                    </table>
+            <div class="rv-container" style="flex:1">
+                <div class="review-box">
+                    <div class="review-list">
+                        <div class="review" id="allSitterReviews">
+                           
+                    </div>
+
                 </div>
             </div>
         </div>
+        
+        
     </main>
 
     <footer id="footer"></footer>

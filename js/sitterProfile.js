@@ -25,30 +25,45 @@ function getSitter(){
         document.getElementById("sitterDescription").innerHTML=`${data.data.description}`;
         document.getElementById("sitterThumbnail").innerHTML=`<img src=${data.data.thumbnail}>`
        
+
+        /*
+          <div class="sh-item">
+                        <span class="name">이민*</span> 2023-12-15 ~ 17
+                    </div>
+        */
         data.data.book_for_sitters.map((e)=>{
             const bookParent= document.getElementById("bookedDay")
-            const bookCild =document.createElement("tr");
+            const bookCild =document.createElement("div");
+            bookCild.className="sh-item";
+
             bookParent.appendChild(bookCild);
 
             bookCild.innerHTML=`
-            <tr>
-            <td>${e.date.slice(0,10)}</td>
-            </tr>
+            <span class="name">${e.customer.name.slice(0,e.customer.name.length-1)}*</span> ${e.date.slice(0,10)}
             `
         })
         
         data.data.review_for_sitters.map((e)=>{
             const allSitterReviewsParent =document.getElementById("allSitterReviews");
-            const newSitterReview= document.createElement("tr");
+            const newSitterReview= document.createElement("div");
+            newSitterReview.className="review-inner"
             allSitterReviewsParent.appendChild(newSitterReview);
 
             newSitterReview.innerHTML=`
-            <tr>
-                <td>${e.user_reviews.name}</td>
-                <td>${e.comment}</td>
-                <td>${e.grade}</td>
-            </tr>
+           
+            <div class="name">${e.user_reviews.name}</div>
+            <div class="content">${e.comment}</div>
+            <div class="star">⭐ ${e.grade}</div>
+            </div>
             `
+/*
+  <div class="review-inner">
+                                <div class="name">이민정</div>
+                                <div class="content">너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</div>
+                                <div class="star">⭐ 4.5</div>
+                            </div>
+*/
+
         })
 
     })
