@@ -149,9 +149,10 @@ main {
 
     >.list {
         width: 60%;
-        display: grid;
-        grid-template-columns: 33% 33% 33%;
-        justify-items: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* grid-template-columns: 33% 33% 33%; */
         gap: 30px;
     }
 }
