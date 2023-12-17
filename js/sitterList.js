@@ -1,7 +1,6 @@
 
 let reviewServer="http://localhost:3000/api/users/"
 
-
 function getSitterList(){
     fetch(reviewServer,{
         method: "GET",

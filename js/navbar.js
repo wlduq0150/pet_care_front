@@ -18,16 +18,15 @@ logOut.addEventListener("click",()=>{
     localStorage.removeItem("accessToken");
     window.onload();
 })
-//?sitterId
+
 function getMyInformation(){
     fetch("http://localhost:3000/api/users/me",{
         method: "GET",
-        headers: {//로그인마다 바꿔줘야함
+        headers: {
             "Authorization": `Bearer ${token}`,
           },
     })
     .then(response=>{
-       //로그인 됬다는 함수 호출
         return response.json();
     })
     .then(data=>{
@@ -54,7 +53,8 @@ function notSingin(){
     document.getElementById("sitterListPageSignIn").style.display="block";
     document.getElementById("sitterListPageBook").style.display="none";
     document.getElementById("sitterListPageReview").style.display="none";
-    console.log("로그인 안됨");
+    alert("로그인 안됨");
+    location.href="signin.html";
 }
 
 
