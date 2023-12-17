@@ -79,7 +79,7 @@ const updateReview= (reviewId)=>{
 */
 function updateReview(reviewId){
     fetch(`${server}/api/reviews/${reviewId}`,{
-        method:"PUT",
+        method:"PATCH",
         headers: {
             "Authorization": `Bearer ${token}`,
           },
@@ -90,12 +90,16 @@ function updateReview(reviewId){
         }),
     })
     .then(response=>{
+        console.log(response);
         
         return response.json();
     }).
     then(data =>{
 
         console.log(data);
+    })
+    .catch((err) => {
+        console.log(err);
     })
 }
 
