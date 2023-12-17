@@ -5,7 +5,7 @@ let reviewServer="http://localhost:3000/api/users/"
 function getSitterList(){
     fetch(reviewServer,{
         method: "GET",
-        headers: {//로그인마다 바꿔줘야함
+        headers: {
             "Authorization": `Bearer ${token}`,
           },
     })
@@ -13,9 +13,7 @@ function getSitterList(){
         return response.json();
     }).
     then(data=>{
-       // console.log(data.data.length);
         data.data.map((e)=>{
-           // for(let i=0;i<data.data.lenthg;i++)
             if(e.role=="sitter"){
                 let sitterListParent= document.getElementById("sitterListP")
                 let sitterChild =document.createElement("div");
@@ -23,12 +21,10 @@ function getSitterList(){
                 let sitterAverageGrade;
                 
                 e.review_for_sitters.map((el)=>{
-                   // console.log(el.grade);
                     sitterGrade+=el.grade;
                 });
                 
                 if(sitterGrade>=1){
-                   // console.log(sitterGrade);
                      sitterAverageGrade=sitterGrade/e.review_for_sitters.length
                 }
                 else{
@@ -40,7 +36,7 @@ function getSitterList(){
                 sitterChild.innerHTML=`
                 <article onclick="movePage(${e.id})">
                     <section id="profile">
-                        <img src="../img/test.png">
+                        <img src=${e.thumbnail}>
                     </section>
                     <section id="description">
                         <div id="user">
@@ -66,7 +62,6 @@ function movePage(id){
     location.href=`review.html?sitterId=${id}`;
     
 }
-
 
 getMyInformation();
 
