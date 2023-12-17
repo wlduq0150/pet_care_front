@@ -81,6 +81,7 @@ function updateReview(reviewId){
     fetch(`${server}/api/reviews/${reviewId}`,{
         method:"PUT",
         headers: {
+            "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`,
           },
           body: JSON.stringify({
