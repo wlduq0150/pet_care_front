@@ -11,7 +11,9 @@
     <form class="signupBox">
         <div class="thumbnailUpload">
             <input type="file" class="imgUpload" accept="image/*" required style="display: none;" onchange="showImgFile(this)">
-            <div class="showThumbnail"></div>
+            <div class="showThumbnail">
+                <img id="preview" />
+            </div>
             <div class="imgUploadButton">image upload</div>
         </div>
         <div class="signupDataName">name</div>
@@ -25,18 +27,18 @@
         <div class="signupDataName">role</div>
         <div class="signupDataChoice">
             <div>
-                <input type="checkbox" name="role" id="sitterCheck" value="sitter" onclick="checkRole(this)"> sitter
+                <input type="checkbox" name="role" id="sitterCheck" value="sitter" checked="checked" onclick="checkRole(this)"> sitter
             </div>
             <div>
                 <input type="checkbox" name="role" id="customerCheck" value="customer" onclick="checkRole(this)"> customer
             </div>
         </div>
-        <div class="signupDataName">experience</div>
+        <div id="experienceName" class="signupDataName">experience</div>
         <input type="text" name="experience" id="experienceField" class="signupDataField" placeholder="experience">
-        <div class="signupDataName">type</div>
-        <div class="signupDataChoice">
+        <div id="typeName" class="signupDataName">type</div>
+        <div id="typeSelect" class="signupDataChoice">
             <div>
-                <input type="checkbox" name="type" id="largeCheck" value="large" onclick="checkType(this)"> large
+                <input type="checkbox" name="type" id="largeCheck" value="large" checked="checked" onclick="checkType(this)"> large
             </div>
             <div>
                 <input type="checkbox" name="type" id="mediumCheck" value="medium" onclick="checkType(this)"> medium

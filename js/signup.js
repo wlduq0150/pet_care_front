@@ -10,12 +10,29 @@ function showImgFile(file) {
 
 function checkRole(element) {
     const checkboxes = document.getElementsByName("role");
+    let userRole = "sitter";
 
     checkboxes.forEach((cb) => {
         cb.checked = false;
     })
 
     element.checked = true;
+
+    const roleCheckSitter = document.getElementById("sitterCheck");
+    const roleCheckCustomer = document.getElementById("customerCheck");
+    
+    if(roleCheckSitter.checked) {
+        document.getElementById("experienceName").style="display:block; margin-left:20px; height:30px; width:120px;";
+        document.getElementById("experienceField").style="display:block; align-items:center; height:30px; width:300px; border-radius:5px;";
+        document.getElementById("typeName").style="display:block margin-left:20px; height:30px; width:120px;";
+        document.getElementById("typeSelect").style="display:block display:grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; height: 30px; width: 300px;";
+    }
+    if(roleCheckCustomer.checked) {
+        document.getElementById("experienceName").style="display:none";
+        document.getElementById("experienceField").style="display:none";
+        document.getElementById("typeName").style="display:none";
+        document.getElementById("typeSelect").style="display:none";
+    }
 }
 
 function checkType(element) {
@@ -66,6 +83,31 @@ signupSubmit.addEventListener("click", async (event) => {
     }
     if(typeCheckSmall.checked) {
         userType = "small";
+    }
+    
+    if(!userName) {
+        alert("이름을 입력해주세요.");
+        return;
+    }
+    if(!userEmail) {
+        alert("이메일을 입력해주세요.");
+        return;
+    }
+    if(!userPassword) {
+        alert("비밀번호를 입력해주세요.");
+        return;
+    }
+    if(!userCheckPassword) {
+        alert("비밀번호 확인을 입력해주세요.");
+        return;
+    }
+    if(!userExperience && roleCheckSitter.checked) {
+        alert("경력을 입력해주세요.");
+        return;
+    }
+    if(!userDiscription) {
+        alert("자기소개를 입력해주세요.");
+        return;
     }
 
     const formData = new FormData();
