@@ -1,5 +1,6 @@
 const imgUpload = document.querySelector('.imgUpload');
 const imgUploadButton = document.querySelector('.imgUploadButton');
+let uploadedImage;
 
 imgUploadButton.addEventListener('click', () => imgUpload.click());
 
