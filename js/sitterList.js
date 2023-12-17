@@ -32,10 +32,11 @@ function getSitterList(){
 
                 sitterListParent.appendChild(sitterChild);
 
+                //아마 39번째 줄(이미지 업로드 부분) 추후에 바꿔야 할듯
                 sitterChild.innerHTML=`
                 <article onclick="movePage(${e.id})">
                     <section id="profile">
-                        <img src=${e.thumbnail}>
+                        <img src=${e.thumbnail} id=sitterImg> 
                     </section>
                     <section id="description">
                         <div id="user">
@@ -49,6 +50,7 @@ function getSitterList(){
                     </section>
                 </article>
                 `
+
             }
         })
     })

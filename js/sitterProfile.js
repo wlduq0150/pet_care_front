@@ -23,14 +23,10 @@ function getSitter(){
     then(data=>{
         document.getElementById("sitterName").innerHTML=`${data.data.name} 님`;
         document.getElementById("sitterDescription").innerHTML=`${data.data.description}`;
-        document.getElementById("sitterThumbnail").innerHTML=`<img src=${data.data.thumbnail}>`
+        const sitterThumbnail=document.getElementById("sitterThumbnail");
        
+        sitterThumbnail.src=data.data.thumbnail
 
-        /*
-          <div class="sh-item">
-                        <span class="name">이민*</span> 2023-12-15 ~ 17
-                    </div>
-        */
         data.data.book_for_sitters.map((e)=>{
             const bookParent= document.getElementById("bookedDay")
             const bookCild =document.createElement("div");
