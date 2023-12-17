@@ -47,12 +47,70 @@ const addBookToScrren = (book) => {
         <div class="requirements">${book.requirement}</div>
         <div class="date">${date_}</div>
         <div class="buttons">
-            <button class="review">리뷰</button>
+            <button class="review" onClick="writeReview(${book.id})()">리뷰</button>
             <button class="delete" onClick="deleteBook(${book.id})()">삭제</button>
         </div>
     `
 
     main.appendChild(div);
+}
+
+const writeReview = (bookId) => {
+    return async () => {
+        const comment = prompt("리뷰 내용을 입력해주세요");
+        const grade = parseInt(prompt("평점을 입력해주세요(1~5)"));
+        let sitterId;
+
+        if (grade < 1 || grade > 5) {
+            alert("평점을 잘못 입력하셧습니다!");
+            return;
+        }
+
+        try {
+            const response = await axios.get(server + "/api/books/id/" + bookId , {
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            });
+        
+            const book = response.data.data;
+
+            sitterId = book.sitterId;
+        } catch (err) {
+            const response = err.response;
+
+            if (response.status === 401) {
+                alert("로그인이 필요합니다.");
+                return;
+            }
+        }
+
+        try {
+            const response = await axios.post(server + "/reviews", {
+                sitterId,
+                comment,
+                grade
+            }, {
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            });
+    
+            if (!response.data.ok) {
+                alert("리뷰 작성 실패");
+                return;
+            }
+    
+            alert("리뷰 작성 완료!");
+        } catch (err) {
+            const response = err.response;
+
+            if (response.status === 401) {
+                alert("로그인이 필요합니다.");
+                return;
+            }
+        }
+    }
 }
 
 const deleteBook = (bookId) => {
