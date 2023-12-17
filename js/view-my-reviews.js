@@ -2,7 +2,6 @@
 const queryParams = new URLSearchParams(window.location.search);
 const myId = queryParams.get('myId');
 
-
 function getReviews(){
     fetch(`${server}/api/reviews/myReviews`,{
          method: "GET",
@@ -78,15 +77,23 @@ const updateReview= (reviewId)=>{
 }
 */
 function updateReview(reviewId){
+    const comment = prompt("리뷰 내용을 입력해주세요");
+    const grade = parseInt(prompt("평점을 입력해주세요(1~5)"));
+
+    if (grade < 1 || grade > 5 || isNaN(grade)) {
+        alert("평점을 잘못 입력하셧습니다!");
+        return;
+    }
+
     fetch(`${server}/api/reviews/${reviewId}`,{
-        method:"PATCH",
+        method:"PUT",
         headers: {
+            "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`,
           },
           body: JSON.stringify({
-            //userId: 3,
-            comment: "싫어요",
-            grade:5,
+            comment: comment,
+            grade:grade,
         }),
     })
     .then(response=>{
@@ -95,8 +102,8 @@ function updateReview(reviewId){
         return response.json();
     }).
     then(data =>{
-
-        console.log(data);
+        alert("수정하였습니다");
+        location.reload();
     })
     .catch((err) => {
         console.log(err);
@@ -104,6 +111,10 @@ function updateReview(reviewId){
 }
 
 function deleteReview(reviewId){
+    const comment = prompt('정말로 삭제 하시겠습니까? 삭제하시려면 "네" 라고 써주세요');
+    if(comment!="네"){
+        return alert("삭제하지 않을게요");
+    }
     fetch(`${server}/api/reviews/${reviewId}`,{
         method:"DELETE",
         headers:{
