@@ -9,6 +9,7 @@ document.querySelector("#menu").addEventListener("click", () => {
     }
 });
 
+
 let token;
 token = localStorage.getItem("accessToken");
 
@@ -26,7 +27,6 @@ function getMyInformation(){
           },
     })
     .then(response=>{
-       
         return response.json();
     })
     .then(data=>{
