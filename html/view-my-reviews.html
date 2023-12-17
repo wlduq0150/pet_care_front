@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/view-my-reviews.css">
+</head>
+<body>
+
+    <header>
+        <div class="icon">
+            <div class="plus-option">
+                <i class="fas fa-keyboard"></i>
+                <i class="fas fa-microphone"></i>
+            </div>
+        </div>
+        <img src="../img/logo.svg">
+        <div id="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <nav>
+        <a id="sitterListPageLogOut" href="">log-out</a>
+        <a id="sitterListPageSignUp" href="signup.html">sign-up</a>
+        <a id="sitterListPageSignIn" href="signin.html">sign-in</a>
+        <a id="sitterListPageBook" href="book-list.html">book</a>
+        <a id="sitterListPageReview" href="">review</a>
+    </nav>
+    <div id="header">
+    </div>
+    <script>
+        async function fetchHtmlAsText(url) {
+            return await (await fetch(url)).text();
+        }
+
+        async function importPage(target) {
+            document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+        }
+        importPage('header');
+    </script>
+
+    <div class="subtitle_box">
+        <h1>내가쓴 리뷰 목록</h1>
+    </div>
+    
+    <main>
+        
+        <!-- 다른 예약 박스들도 추가할 수 있음 -->
+    </main>
+
+    <!-- <script src="https://unpkg.com/jsonwebtoken@8.5.1"></script> -->
+    <script src="../js/constants.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/view-my-reviews.js"></script>
+   <!--  <script src="../js/constants.js"></script>
+    <script src="../js/book-list.js"></script> -->
+</body>
+</html>
