@@ -159,3 +159,21 @@ main {
 footer {
     width: 100vw;
 }
+
+.slide-container {
+    width: 100v;
+    height: 400px;
+    background-color: #cbcbcb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >img{
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}
+.font1 {
+    font-size: 50px;
+    color : #494d64;
+}
