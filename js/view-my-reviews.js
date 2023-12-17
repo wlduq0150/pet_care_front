@@ -126,6 +126,7 @@ function deleteReview(reviewId){
     })
     .then(data=>{
         console.log(data);
+        location.reload();
     })
 }
 

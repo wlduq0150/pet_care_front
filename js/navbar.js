@@ -1,3 +1,12 @@
+const header_logo = document.querySelector("header img");
+
+if (header_logo) {
+    console.log(header_logo);
+    header_logo.addEventListener("click", (e) => {
+        location.href="sitterList.html";
+    });
+}
+
 let n = document.querySelector("nav");
 n.setAttribute("class", "hidden");
 
