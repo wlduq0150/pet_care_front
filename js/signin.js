@@ -20,12 +20,16 @@ signinButton.addEventListener("click", async (event) => {
 
         const data = await response.json();
 
+        if (!response.ok) {
+            alert(data.message);
+            return;
+        }
+
         localStorage.setItem("accessToken", data.accessToken.split(" ")[1]);
         alert("로그인 성공");
         location.href = "sitterList.html";
     } catch (err) {
         console.log(err);
+        alert("로그인 실패");
     }
-
-    
 });

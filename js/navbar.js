@@ -9,6 +9,7 @@ document.querySelector("#menu").addEventListener("click", () => {
     }
 });
 
+
 let token;
 token = localStorage.getItem("accessToken");
 
@@ -26,7 +27,6 @@ function getMyInformation(){
           },
     })
     .then(response=>{
-       
         return response.json();
     })
     .then(data=>{
@@ -44,7 +44,6 @@ function yesSiginin(){
     document.getElementById("sitterListPageSignIn").style.display="none";
     document.getElementById("sitterListPageBook").style.display="block";
     document.getElementById("sitterListPageReview").style.display="block";
-    console.log("로그인됨");
 }
 
 function notSingin(){
@@ -53,8 +52,6 @@ function notSingin(){
     document.getElementById("sitterListPageSignIn").style.display="block";
     document.getElementById("sitterListPageBook").style.display="none";
     document.getElementById("sitterListPageReview").style.display="none";
-    alert("로그인 안됨");
-    location.href="signin.html";
 }
 
 
