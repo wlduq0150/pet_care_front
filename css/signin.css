@@ -43,3 +43,20 @@ body {
     width: 200px;
     border-radius: 10px;
 }
+article {
+    padding: 20px;
+    border-radius: 15px;
+    width: 360px;
+    background-color: #fff;
+    border: solid 1px var(--primary);
+    box-shadow: 0 5px 0 var(--primary);
+    transition: all .5s;
+    transition-timing-function: cubic-bezier(0.11, 0.69, 0.21, 2);
+
+    > h1{
+        font-size: 22px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+}
