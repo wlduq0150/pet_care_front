@@ -1,4 +1,4 @@
-const header_logo = document.querySelector(".header_logo");
+const header_logo = document.querySelector("header img");
 
 if (header_logo) {
     console.log(header_logo);
