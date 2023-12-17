@@ -1,9 +1,3 @@
-const imgUpload = document.querySelector('.imgUpload');
-const imgUploadButton = document.querySelector('.imgUploadButton');
-let uploadedImage;
-
-imgUploadButton.addEventListener('click', () => imgUpload.click());
-
 function showImgFile(file) {
     console.log(file.value);
     console.log(file.files);
@@ -46,10 +40,45 @@ function checkType(element) {
     element.checked = true;
 }
 
+
+const preview = document.getElementById("preview");
+const imgUpload = document.querySelector('.imgUpload');
+const imgUploadButton = document.querySelector('.imgUploadButton');
+let uploadedImage;
+
+imgUploadButton.addEventListener('click', () => imgUpload.click());
+
+imgUpload.addEventListener('change', async () => {
+    const file = imgUpload.files[0];
+
+    const formData = new FormData();
+    formData.append("thumbnail", file);
+
+    try {
+        const response = await fetch(server + "/api/image/upload", {
+            method: "POST",
+            body: formData,
+        });
+
+        if (!response.ok) {
+            alert("이미지 업로드 실패")
+        }
+
+        const data = await response.json();
+        
+        uploadedImage = data.data.image;
+        preview.src = uploadedImage;
+    } catch (err) {
+        alert("이미지 업로드 실패");
+        imgUpload.value = null;
+        preview.src = "";
+        return;
+    }
+});
+
+
 const signupBox = document.getElementById("signupBox");
 const signupSubmit = document.getElementById("signupSubmit");
-
-
 
 signupSubmit.addEventListener("click", async (event) => {
     event.preventDefault();
@@ -111,40 +140,10 @@ signupSubmit.addEventListener("click", async (event) => {
         return;
     }
 
-    const formData = new FormData();
-    const imagefile = document.querySelector(".imgUpload");
-    formData.append("thumbnail", imagefile.files[0]);
-    let userThumbnail;
-
-    try {
-        const response = await fetch(server + "/api/image/upload", {
-            method: "POST",
-            body: formData,
-        });
-
-        if (!response.ok) {
-            alert("이미지 업로드 실패")
-        }
-
-        const data = await response.json();
-        
-        userThumbnail = data.data.image;
-    } catch (err) {
-        alert("이미지 업로드 실패");
+    if(!uploadedImage) {
+        alert("프로필 사진을 넣어주세요.");
         return;
     }
-
-    const body =  {
-        name: userName,
-        email: userEmail, 
-        password: userPassword,
-        checkPassword: userCheckPassword,
-        role: userRole,
-        experience: userExperience,
-        type: userType,
-        discription: userDiscription,
-        thumbnail: userThumbnail
-    };
 
     try {
         const response = await fetch(server + "/api/auth/signup", {
@@ -161,14 +160,16 @@ signupSubmit.addEventListener("click", async (event) => {
                 experience: userExperience,
                 type: userType,
                 discription: userDiscription,
-                thumbnail: userThumbnail
+                thumbnail: uploadedImage
             })
         });
 
         const data = await response.json();
 
         alert("회원가입 성공");
+        location.href = "sitterList.html";
     } catch (err) {
+        console.log(err);
         alert("회원가입 실패");
         return;
     }
