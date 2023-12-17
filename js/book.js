@@ -11,8 +11,11 @@ const onLoginLoad = () => {
 
     if (!token) {
         alert("로그인이 필요한 기능입니다!");
+        location.href="signin.html";
         return;
     }
+
+    return true;
 }
 
 
@@ -126,7 +129,8 @@ const loadSitter = async () => {
         }
 
         if (response.status === 401) {
-            alert("로그인이 필요합니다.");
+            // alert("로그인이 필요합니다.");
+            location.href="signin.html";
             return;
         }
     }
@@ -175,6 +179,7 @@ const onBook = async () => {
 
         if (response.status === 401) {
             alert("로그인이 필요합니다.");
+            location.href="signin.html";
             return;
         }
     }
@@ -182,7 +187,7 @@ const onBook = async () => {
 
 window.onload = function() {
     createCalendar(currentYear, currentMonth);
-    onLoginLoad();
-    loadSitter();
+    const result = onLoginLoad();
+    if (result) loadSitter();
 };
 

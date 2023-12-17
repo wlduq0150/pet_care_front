@@ -18,6 +18,13 @@ function getSitter(){
           },
     })
     .then(response=>{
+        
+        if (!response.ok) {
+            alert("로그인이 필요한 기능입니다.");
+            location.href="signin.html";
+            return;
+        }
+
         return response.json();
     }).
     then(data=>{
@@ -52,16 +59,11 @@ function getSitter(){
             <div class="star">⭐ ${e.grade}</div>
             </div>
             `
-/*
-  <div class="review-inner">
-                                <div class="name">이민정</div>
-                                <div class="content">너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</div>
-                                <div class="star">⭐ 4.5</div>
-                            </div>
-*/
 
         })
-
+    })
+    .catch((err) => {
+        console.log(err);
     })
 }
 
