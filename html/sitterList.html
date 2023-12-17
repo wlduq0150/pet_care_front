@@ -33,10 +33,12 @@
         </div>
     </header>
     <nav>
-        <a href="">sign-up</a>
-        <a href="">sign-in</a>
-        <a href="">book</a>
-        <a href="">review</a>
+        <a id="sitterListPageLogOut" href="">log-out</a>
+        <a id="sitterListPageSignUp" href="">sign-up</a>
+        <a id="sitterListPageSignIn" href="signin.html">sign-in</a>
+        <a id="sitterListPageBook" href="book-list.html">book</a>
+        <a id="sitterListPageReview" href="">review</a>
+
     </nav>
     <div id="header">
     </div>
@@ -81,108 +83,8 @@
         <div class="font1" ><h1>어떤 분들이 활동하나요?</h1></div>
         <div class="font2"></h3>반려동물을 사랑하는 마음은 물론, 반려동물 관련 자격증 또는
             전문 지식을 갖춘 분들이 와요 전문 펫시터로 활동하고 있습니다.</h3></div>
-        <div class="list">
-            <article>
-                <section id="profile">
-                    <img src="../img/test.png">
-                </section>
-                <section id="description">
-                    <div id="user">
-                        <h1>이상혁</h1>
-                        <h2>그는 "페이커"라는 닉네임으로 잘 알려져 있으며, 2013년과 2015년에 소환사의 협곡 에서 열린 리그 오브 레전드 월드 챔피언십에서 승리하면서 국제적으로도
-                            유명해졌습니다.</h2>
-                    </div>
-                    <div id="info">
-                        <div><img src="../img/pet.svg">27년</div>
-                        <div><img src="../img/star.svg">5.5</div>
-                    </div>
-                </section>
-            </article>
-
-            <article>
-                <section id="profile">
-                    <img src="../img/test.png">
-                </section>
-                <section id="description">
-                    <div id="user">
-                        <h1>이상혁</h1>
-                        <h2>그는 "페이커"라는 닉네임으로 잘 알려져 있으며, 2013년과 2015년에 소환사의 협곡 에서 열린 리그 오브 레전드 월드 챔피언십에서 승리하면서 국제적으로도
-                            유명해졌습니다.</h2>
-                    </div>
-                    <div id="info">
-                        <div><img src="../img/pet.svg">27년</div>
-                        <div><img src="../img/star.svg">5.5</div>
-                    </div>
-                </section>
-            </article>
-
-            <article>
-                <section id="profile">
-                    <img src="../img/test.png">
-                </section>
-                <section id="description">
-                    <div id="user">
-                        <h1>이상혁</h1>
-                        <h2>그는 "페이커"라는 닉네임으로 잘 알려져 있으며, 2013년과 2015년에 소환사의 협곡 에서 열린 리그 오브 레전드 월드 챔피언십에서 승리하면서 국제적으로도
-                            유명해졌습니다.</h2>
-                    </div>
-                    <div id="info">
-                        <div><img src="../img/pet.svg">27년</div>
-                        <div><img src="../img/star.svg">5.5</div>
-                    </div>
-                </section>
-            </article>
-
-            <article>
-                <section id="profile">
-                    <img src="../img/test.png">
-                </section>
-                <section id="description">
-                    <div id="user">
-                        <h1>이상혁</h1>
-                        <h2>그는 "페이커"라는 닉네임으로 잘 알려져 있으며, 2013년과 2015년에 소환사의 협곡 에서 열린 리그 오브 레전드 월드 챔피언십에서 승리하면서 국제적으로도
-                            유명해졌습니다.</h2>
-                    </div>
-                    <div id="info">
-                        <div><img src="../img/pet.svg">27년</div>
-                        <div><img src="../img/star.svg">5.5</div>
-                    </div>
-                </section>
-            </article>
-
-            <article>
-                <section id="profile">
-                    <img src="../img/test.png">
-                </section>
-                <section id="description">
-                    <div id="user">
-                        <h1>이상혁</h1>
-                        <h2>그는 "페이커"라는 닉네임으로 잘 알려져 있으며, 2013년과 2015년에 소환사의 협곡 에서 열린 리그 오브 레전드 월드 챔피언십에서 승리하면서 국제적으로도
-                            유명해졌습니다.</h2>
-                    </div>
-                    <div id="info">
-                        <div><img src="../img/pet.svg">27년</div>
-                        <div><img src="../img/star.svg">5.5</div>
-                    </div>
-                </section>
-            </article>
-
-            <article>
-                <section id="profile">
-                    <img src="../img/test.png">
-                </section>
-                <section id="description">
-                    <div id="user">
-                        <h1>이상혁</h1>
-                        <h2>그는 "페이커"라는 닉네임으로 잘 알려져 있으며, 2013년과 2015년에 소환사의 협곡 에서 열린 리그 오브 레전드 월드 챔피언십에서 승리하면서 국제적으로도
-                            유명해졌습니다.</h2>
-                    </div>
-                    <div id="info">
-                        <div><img src="../img/pet.svg">27년</div>
-                        <div><img src="../img/star.svg">5.5</div>
-                    </div>
-                </section>
-            </article>
+        <div class="list" id="sitterListP">
+            
         </div>
     </main>
 
@@ -201,17 +103,7 @@
     importPage('footer');
 </script>
 
-<script>
-    let n = document.querySelector("nav");
-    n.setAttribute("class", "hidden");
-
-    document.querySelector("#menu").addEventListener("click", () => {
-        if (n.getAttribute("class") === "hidden") {
-            n.setAttribute("class", "visible");
-        } else {
-            n.setAttribute("class", "hidden");
-        }
-    });
-</script>
+<script src="../js/navbar.js"></script>
+<script src="../js/sitterList.js"></script>
 
 </html>
