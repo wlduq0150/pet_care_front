@@ -28,10 +28,11 @@
     </div>
 </header>
 <nav>
-    <a href="">sign-up</a>
-    <a href="">sign-in</a>
-    <a href="">book</a>
-    <a href="">review</a>
+    <a id="sitterListPageLogOut" href="">log-out</a>
+    <a id="sitterListPageSignUp" href="">sign-up</a>
+    <a id="sitterListPageSignIn" href="">sign-in</a>
+    <a id="sitterListPageBook" href="">book</a>
+    <a id="sitterListPageReview" href="">review</a>
 </nav>
 
 
@@ -49,63 +50,32 @@
     </script>
     <main>
         <h2>우리 아이들의 마음을 이해하고 치유해드려요</h2>
+
         <div class="rv-container sitter-box">
-            <h3 class="name"> 박동훈 훈련사</h3>
+            <h3 class="name" id="sitterName"> </h3>
             <div class="content">
-                <div class="discription">
-                    지금 우리의 옆에 같이 있는 가족 반려견 우리 아이들에 대해
-                    얼마나 알고 계신가요? 서로를 위해 우리 아이들은 우리들의
-                    옆에 정말 가까이 있습니다. 가까이 있으면서 문제가 생기기는
-                    일은 당연한 일입니다. 가까운 사이 일수록 더욱 지치기도 쉽고
-                    다투기도 잦습니다. 저는 우리 아이들에게 그리고 보호자님에게
-                    서로의 마음으로 하는 소통의 창을 열어드리고자 합니다.
+                <div class="discription" id="sitterDescription">
                 </div>
-                <img src="../img/profile1.png">
+                <div class="sitter-img" id="sitterThumbnail">
+                </div>
             </div>
             <div class="footer">
-                <button class="button">예약하기</button>
+                <button class="button" id="bookThisSitter">예약하기</button>
             </div>
         </div>
         <div style="display: flex; gap: 20px;">
             <div class="rv-container schedule">
                 <div class="title">예약일정</div>
-                <div class="content">
-                    <div class="sh-item">
-                        <span class="name">이민*</span> 2023-12-15 ~ 17
-                    </div>
-                    <div class="sh-item">
-                        <span class="name">이상*</span> 2023-12-20 ~ 21
-                    </div>
-                    <div class="sh-item">
-                        <span class="name">김민*</span> 2023-12-23 ~ 28
-                    </div>
+                <div class="content"  id="bookedDay">
                 </div>
             </div>
             <div class="rv-container" style="flex:1">
                 <div class="review-box">
                     <div class="review-list">
-                        <div class="review">
-                            <div class="review-inner">
-                                <div class="name">이민정</div>
-                                <div class="content">너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</div>
-                                <div class="star">⭐ 4.5</div>
-                            </div>
-                        </div>
-                        <div class="review">
-                            <div class="review-inner">
-                                <div class="name">김아무개</div>
-                                <div class="content">너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</div>
-                                <div class="star">⭐ 5</div>
-                            </div>
-                        </div>
-                        <div class="review">
-                            <div class="review-inner">
-                                <div class="name">박아무개</div>
-                                <div class="content">너무 좋고 시간 잘 맞춰서 와주셨고 아이가 너무 좋아했습니다!</div>
-                                <div class="star">⭐ 4.5</div>
-                            </div>
-                        </div>
+                        <div class="review" id="allSitterReviews">
+                           
                     </div>
+
                 </div>
             </div>
         </div>
@@ -125,6 +95,7 @@
         importPage('footer');
     </script>
     <script src="../js/navbar.js"></script>
+    <script src="../js/sitterProfile.js"></script>
 </body>
 
 </body>
