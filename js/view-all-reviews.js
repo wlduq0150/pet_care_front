@@ -1,4 +1,4 @@
-//리뷰 목록 (리뷰 전체보기 페이지)
+
 
 function getReviews() {
     fetch(`${server}/api/reviews/`, {
@@ -39,15 +39,3 @@ function postReview() {
 
 getReviews();
 
-/*
-div.innerHTML=`
-        <div class="profile-pic"><img src="../img/test.png"></div>
-        <div class="name">${book.sitter.name}</div>
-        <div class="requirements">${book.requirement}</div>
-        <div class="date">${date_}</div>
-        <div class="buttons">
-            <button class="review">리뷰</button>
-            <button class="delete" onClick="deleteBook(${book.id})()">삭제</button>
-        </div>
-    `
-*/

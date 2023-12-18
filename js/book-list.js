@@ -22,6 +22,8 @@ const loadBooks = async () => {
         books.forEach((book) => {
             addBookToScrren(book);
         });
+
+        nowUser();
     } catch (err) {
         const response = err.response;
 
@@ -40,6 +42,8 @@ const addBookToScrren = (book) => {
 
     const date_ = book.date.split("-")[0] + "년 " + book.date.split("-")[1] + "월 " + book.date.split("-")[2].slice(0, 2) + "일";
 
+    
+
     div.innerHTML = `
         <div class="profile-pic"><img src="../img/test.png"></div>
         <div class="name">${book.sitter.name}</div>
@@ -50,7 +54,8 @@ const addBookToScrren = (book) => {
             <button class="delete" onClick="deleteBook(${book.id})()">삭제</button>
         </div>
     `
-
+   
+   
     main.appendChild(div);
 }
 
@@ -144,8 +149,31 @@ const deleteBook = (bookId) => {
     }
 }
 
+const nowUser = async()=>{
+        try{
+            const userRole= await axios.get(server+"/api/reviews/myReviews",{
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            });
+
+            if(userRole.data.data[0].role=="sitter"){
+                
+               const unviewButton= document.getElementsByClassName("buttons")
+               for(let i=0;i<unviewButton.length;i++){
+                unviewButton[i].style.display="none";
+               }    
+            }
+
+        }catch(err){
+
+        }
+}
+
 
 window.onload = function() {
     onLoginLoad();
     loadBooks();
+    
 };
+
