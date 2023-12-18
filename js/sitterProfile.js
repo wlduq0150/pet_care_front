@@ -52,14 +52,14 @@ function getSitter() {
         sitterThumbnail.src=data.data.thumbnail
 >>>>>>> 168fd925ee3593efe60be35a01daa7e76d2c6e25
 
-            return response.json();
-        }).
-    then(data => {
-            document.getElementById("sitterName").innerHTML = `${data.data.name} 님`;
-            document.getElementById("sitterDescription").innerHTML = `${data.data.description}`;
-            const sitterThumbnail = document.getElementById("sitterThumbnail");
-
-            sitterThumbnail.src = data.data.thumbnail
+        return response.json();
+    }).
+    then(data=>{
+        document.getElementById("sitterName").innerHTML=`${data.data.name} 님`;
+        document.getElementById("sitterDescription").innerHTML=`${data.data.description}`;
+        const sitterThumbnail=document.getElementById("sitterThumbnail");
+       
+        sitterThumbnail.src=data.data.thumbnail
 
             data.data.book_for_sitters.map((e) => {
                 const bookParent = document.getElementById("bookedDay")
@@ -70,7 +70,7 @@ function getSitter() {
 
                 bookCild.innerHTML = `
             <span class="name">${e.customer.name.slice(0,e.customer.name.length-1)}*</span> ${e.date.slice(0,10)}
-            `
+            `;
             })
 
             data.data.review_for_sitters.map((e) => {
