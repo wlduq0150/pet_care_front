@@ -52,7 +52,7 @@ function getSitter() {
         sitterThumbnail.src=data.data.thumbnail
 
 
-        return response.json();
+        return data;
     }).
     then(data=>{
         document.getElementById("sitterName").innerHTML=`${data.data.name} 님`;
