@@ -244,6 +244,7 @@ article {
         height: auto;
 
         border-radius: 50%;
+        aspect-ratio: 2/2
     }
 
     & > h1 {
