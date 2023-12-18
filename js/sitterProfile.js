@@ -1,28 +1,27 @@
 const queryParams = new URLSearchParams(window.location.search);
 const sitterId = queryParams.get('sitterId');
 
-let clickBook = document.getElementById("bookThisSitter");
-clickBook.addEventListener("click", () => {
-    location.href = `book.html?sitterId=${sitterId}`;
+let clickBook =document.getElementById("bookThisSitter");
+clickBook.addEventListener("click",()=>{
+    location.href=`book.html?sitterId=${sitterId}`;
 })
 
 
 
-function getSitter() {
-    fetch(`${server}/api/users/${sitterId}`, {
-            method: "GET",
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        })
-        .then(response => {
-
-
-            if (!response.ok) {
-                alert("로그인이 필요한 기능입니다.");
-                location.href = "signin.html";
-                return;
-            }
+function getSitter(){
+    fetch(`${server}/api/users/${sitterId}`,{
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${token}`,
+          },
+    })
+    .then(response=>{
+        
+        if (!response.ok) {
+            alert("로그인이 필요한 기능입니다.");
+            location.href="signin.html";
+            return;
+        }
 
         return response.json();
     }).
@@ -47,39 +46,29 @@ function getSitter() {
             sitterAverageGrade=0;
         }
 
-        document.getElementById("averageGrade").innerHTML=`<h3>⭐${parseFloat(Math.ceil(sitterAverageGrade*100)/100).toFixed(2)}</h3>`;
+        document.getElementById("averageGrade").innerHTML=`<h3>⭐${sitterAverageGrade}</h3>`;
 
         sitterThumbnail.src=data.data.thumbnail
 
+        data.data.book_for_sitters.map((e)=>{
+            const bookParent= document.getElementById("bookedDay")
+            const bookCild =document.createElement("div");
+            bookCild.className="sh-item";
 
-        return response.json();
-    }).
-    then(data=>{
-        document.getElementById("sitterName").innerHTML=`${data.data.name} 님`;
-        document.getElementById("sitterDescription").innerHTML=`${data.data.description}`;
-        const sitterThumbnail=document.getElementById("sitterThumbnail");
-       
-        sitterThumbnail.src=data.data.thumbnail
+            bookParent.appendChild(bookCild);
 
-            data.data.book_for_sitters.map((e) => {
-                const bookParent = document.getElementById("bookedDay")
-                const bookCild = document.createElement("div");
-                bookCild.className = "sh-item";
-
-                bookParent.appendChild(bookCild);
-
-                bookCild.innerHTML = `
+            bookCild.innerHTML=`
             <span class="name">${e.customer.name.slice(0,e.customer.name.length-1)}*</span> ${e.date.slice(0,10)}
-            `;
-            })
+            `
+        })
+        
+        data.data.review_for_sitters.map((e)=>{
+            const allSitterReviewsParent =document.getElementById("allSitterReviews");
+            const newSitterReview= document.createElement("div");
+            newSitterReview.className="review-inner"
+            allSitterReviewsParent.appendChild(newSitterReview);
 
-            data.data.review_for_sitters.map((e) => {
-                const allSitterReviewsParent = document.getElementById("allSitterReviews");
-                const newSitterReview = document.createElement("div");
-                newSitterReview.className = "review-inner"
-                allSitterReviewsParent.appendChild(newSitterReview);
-
-                newSitterReview.innerHTML = `
+            newSitterReview.innerHTML=`
            
             <div class="name">${e.user_reviews.name}</div>
             <div class="content">${e.comment}</div>
@@ -87,11 +76,11 @@ function getSitter() {
             </div>
             `
 
-            })
         })
-        .catch((err) => {
-            console.log(err);
-        })
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 }
 
 
