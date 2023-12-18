@@ -17,13 +17,11 @@ function getSitter() {
         })
         .then(response => {
 
-<<<<<<< HEAD
             if (!response.ok) {
                 alert("로그인이 필요한 기능입니다.");
                 location.href = "signin.html";
                 return;
             }
-=======
         return response.json();
     }).
     then(data=>{
@@ -46,11 +44,6 @@ function getSitter() {
         else{
             sitterAverageGrade=0;
         }
-
-        document.getElementById("averageGrade").innerHTML=`<h3>⭐${sitterAverageGrade}</h3>`;
-
-        sitterThumbnail.src=data.data.thumbnail
->>>>>>> 168fd925ee3593efe60be35a01daa7e76d2c6e25
 
             return response.json();
         }).
