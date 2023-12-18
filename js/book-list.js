@@ -86,6 +86,7 @@ const writeReview = (bookId) => {
 
         try {
             const response = await axios.post(server + "/api/reviews", {
+                bookId,
                 sitterId,
                 comment,
                 grade
