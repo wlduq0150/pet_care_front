@@ -9,23 +9,40 @@ function getSitterList(){
         return response.json();
     }).
     then(data=>{
+        data.data.map((e) => {
+            let sitterGrade=0;
+
+            e.review_for_sitters.map((el)=>{
+                sitterGrade+=el.grade;
+            });
+            
+            if(sitterGrade>=1){
+                e.sitterAverageGrade=sitterGrade/e.review_for_sitters.length
+            }
+            else{
+                e.sitterAverageGrade=0;
+            }
+        });
+
+        data.data.sort((a,b) => {
+            return b.sitterAverageGrade - a.sitterAverageGrade
+        });
+
         data.data.map((e)=>{
             if(e.role=="sitter"){
                 let sitterListParent= document.getElementById("sitterListP")
-                let sitterChild =document.createElement("div");
-                let sitterGrade=0;
-                let sitterAverageGrade;
+                let sitterChild =document.createElement("div");    
                 
-                e.review_for_sitters.map((el)=>{
-                    sitterGrade+=el.grade;
-                });
+                // e.review_for_sitters.map((el)=>{
+                //     sitterGrade+=el.grade;
+                // });
                 
-                if(sitterGrade>=1){
-                     sitterAverageGrade=sitterGrade/e.review_for_sitters.length
-                }
-                else{
-                    sitterAverageGrade=0;
-                }
+                // if(sitterGrade>=1){
+                //      sitterAverageGrade=sitterGrade/e.review_for_sitters.length
+                // }
+                // else{
+                //     sitterAverageGrade=0;
+                // }
 
                 sitterListParent.appendChild(sitterChild);
 
@@ -42,7 +59,7 @@ function getSitterList(){
                         </div>
                         <div id="info">
                             <div><img src="../img/pet.svg">${e.experience}</div>
-                            <div><img src="../img/star.svg">${sitterAverageGrade}</div>
+                            <div><img src="../img/star.svg">${e.sitterAverageGrade}</div>
                         </div>
                     </section>
                 </article>
@@ -51,8 +68,8 @@ function getSitterList(){
             }
         })
     })
-    .catch(()=>{
-
+    .catch((e)=>{
+        console.log(e);
     })
 }
 
