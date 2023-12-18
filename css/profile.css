@@ -7,8 +7,11 @@ main{
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
-    margin: 10my-profile-containe0px 3%;
+    margin-bottom: calc(100vh/3);
+}
 
+input {
+    cursor: pointer !important;
 }
 
 article {
@@ -56,6 +59,23 @@ article {
             text-transform: uppercase;
         }
     } 
+    
+    > input[type="submit"]{
+        padding: 15px 15px;
+        background-color: var(--primary);
+        border: 0;
+        border-radius: 10px;
+        font-size: 20px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    > div {
+        padding: 10px 15px;
+        width: 100%;
+        background-color: #EFF1F5;
+        border-radius: 10px;
+        overflow: hidden;
+    }
     
     > section{
         display: flex;
@@ -241,10 +261,4 @@ article {
         display: flex;
         gap: var(--gap);
     }
-}
-
-footer{
-    position: absolute;
-    width: 100vw;
-    bottom: 0;
 }

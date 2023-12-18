@@ -11,7 +11,7 @@ const onLoginLoad = () => {
 
     if (!token) {
         alert("로그인이 필요한 기능입니다!");
-        location.href="signin.html";
+        location.href = "signin.html";
         return;
     }
 
@@ -58,11 +58,11 @@ function createCalendar(year, month) {
     }
 
     let cells = document.querySelectorAll('#calendar td a');
-    cells.forEach(function(cell) {
-        cell.addEventListener('click', function(event) {
+    cells.forEach(function (cell) {
+        cell.addEventListener('click', function (event) {
             event.preventDefault(); // 링크의 기본 동작 방지
             let selectedCells = document.querySelectorAll('#calendar td a.selected');
-            selectedCells.forEach(function(selectedCell) {
+            selectedCells.forEach(function (selectedCell) {
                 selectedCell.classList.remove('selected');
             });
             cell.classList.add('selected');
@@ -103,7 +103,7 @@ const loadSitter = async () => {
     try {
         const queryParams = new URLSearchParams(window.location.search);
         const sitterId = queryParams.get('sitterId');
-        
+
         const response = await axios.get(server + "/api/users/" + sitterId, {
             headers: {
                 authorization: "Bearer " + token
@@ -111,7 +111,7 @@ const loadSitter = async () => {
         });
 
         const sitter = response.data.data;
-        
+
         if (!sitter) {
             alert("예약할 수 없는 펫시터입니다.");
             return;
@@ -130,7 +130,7 @@ const loadSitter = async () => {
 
         if (response.status === 401) {
             // alert("로그인이 필요합니다.");
-            location.href="signin.html";
+            location.href = "signin.html";
             return;
         }
     }
@@ -168,7 +168,7 @@ const onBook = async () => {
 
         alert("예약 성공");
         location.href = "book-list.html";
-        
+
     } catch (err) {
         const response = err.response;
 
@@ -179,15 +179,14 @@ const onBook = async () => {
 
         if (response.status === 401) {
             alert("로그인이 필요합니다.");
-            location.href="signin.html";
+            location.href = "signin.html";
             return;
         }
     }
 }
 
-window.onload = function() {
+window.onload = function () {
     createCalendar(currentYear, currentMonth);
     const result = onLoginLoad();
     if (result) loadSitter();
 };
-
