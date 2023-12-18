@@ -10,6 +10,11 @@ function getReviews(){
           },
      })
      .then(response=>{
+        if (!response.ok) {
+            alert("로그인이 필요한 기능입니다.");
+            location.href="signin.html";
+            return;
+        }
          return response.json();
      }).
      then(data =>{
