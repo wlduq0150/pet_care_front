@@ -53,6 +53,7 @@ function yesSiginin(){
     document.getElementById("sitterListPageSignIn").style.display="none";
     document.getElementById("sitterListPageBook").style.display="block";
     document.getElementById("sitterListPageReview").style.display="block";
+    document.getElementById("sitterListPageProfile").style.display="block";
 }
 
 function notSingin(){
@@ -61,6 +62,7 @@ function notSingin(){
     document.getElementById("sitterListPageSignIn").style.display="block";
     document.getElementById("sitterListPageBook").style.display="none";
     document.getElementById("sitterListPageReview").style.display="none";
+    document.getElementById("sitterListPageProfile").style.display="none";
 }
 
 

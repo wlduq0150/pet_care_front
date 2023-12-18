@@ -29,9 +29,14 @@
     box-shadow: 0 5px 0 var(--primary);
 
     & h1{
+        width: 40%;
         font-size: 22px;
         text-transform: uppercase;
         font-weight: 600;
+    }
+
+    & input {
+        width: 60%;
     }
 
     & button {
