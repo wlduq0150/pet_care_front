@@ -59,7 +59,7 @@ function getSitterList(){
                         </div>
                         <div id="info">
                             <div><img src="../img/pet.svg">${e.experience}</div>
-                            <div><img src="../img/star.svg">${Math.ceil(e.sitterAverageGrade*100)/100}</div>
+                            <div><img src="../img/star.svg">${parseFloat(Math.ceil(e.sitterAverageGrade*100)/100).toFixed(2)}</div>
                         </div>
                     </section>
                 </article>
