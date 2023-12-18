@@ -59,7 +59,6 @@ function getSitterList(){
                         </div>
                         <div id="info">
                             <div><img src="../img/pet.svg">${e.experience}</div>
-                            <div><img src="../img/star.svg">${e.sitterAverageGrade}</div>
                         </div>
                     </section>
                 </article>
