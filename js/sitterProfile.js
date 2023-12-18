@@ -47,7 +47,7 @@ function getSitter() {
             sitterAverageGrade=0;
         }
 
-        document.getElementById("averageGrade").innerHTML=`<h3>⭐${sitterAverageGrade}</h3>`;
+        document.getElementById("averageGrade").innerHTML=`<h3>⭐${parseFloat(Math.ceil(sitterAverageGrade*100)/100).toFixed(2)}</h3>`;
 
         sitterThumbnail.src=data.data.thumbnail
 >>>>>>> 168fd925ee3593efe60be35a01daa7e76d2c6e25
