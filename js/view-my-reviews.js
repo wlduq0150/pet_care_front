@@ -13,7 +13,23 @@ function getReviews(){
          return response.json();
      }).
      then(data =>{
-        
+        if(data.data[0].role=="sitter"){
+            document.getElementById("reviewList").innerHTML="내게 쓴 리뷰들"
+            data.data.map((e)=>{
+                const main = document.querySelector("main");
+                const reviewChild = document.createElement("div");
+                reviewChild.classList.add("reservation-box");
+                reviewChild.id=`${e.id}`;
+                
+                main.appendChild(reviewChild);
+                reviewChild.innerHTML = `
+            <span class="userName" id="reviewUserName">${e.userName.name} 님이 </span>
+            <div class="requirements" id="reviewUserComment">${e.comment}</div>
+            <span class="sitterName" id="reviewUserGrade">⭐${+e.grade}개</span>
+            `;
+            })
+
+        }else{
          data.data.map((e)=>{
             const main = document.querySelector("main");
             const reviewChild = document.createElement("div");
@@ -22,18 +38,18 @@ function getReviews(){
 
             main.appendChild(reviewChild);
             reviewChild.innerHTML = `
-            
             <span class="userName" id="reviewUserName">${e.user_reviews.name}님 ></span>
-            <span  id="reviewUserGrade">⭐${+e.grade}개</span>
+            <span  class="sitterName">펫시터: ${e.sitter_reviews.name}</span>
             <div class="requirements" id="reviewUserComment">${e.comment}</div>
-            <div class="sitterName" >펫시터: ${e.sitter_reviews.name}</div>
-              <div class="buttons">
+            <span  id="reviewUserGrade" class="sitterName">⭐${+e.grade}개</span>
+            <div class="buttons">
             <button class="review" onClick="updateReview(${e.id})">수정</button>
             <button class="delete" onClick="deleteReview(${e.id})">삭제 </button>
             </div>
             `;
           
          })
+        }
      });
   }
 
@@ -49,33 +65,7 @@ function getReviews(){
      .then((response) => response.json())
      .then((result) => console.log(result));
  }
-/*
-const updateReview= (reviewId)=>{
-    return async ()=>{
-        try{
-            const response= await axios.put(server+"api/reviews/"+reviewId,{
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                  },
-                  body:{
-                    userId:3,
-                    comment:"싫어요",
-                    grade:4,
-                  },
-            });
 
-            return response.data;
-        }catch(err){
-            const response = err.response;
-
-            if (response.status === 401) {
-                alert("로그인이 필요합니다.");
-                return;
-            }
-        }
-    }
-}
-*/
 function updateReview(reviewId){
     const comment = prompt("리뷰 내용을 입력해주세요");
     const grade = parseInt(prompt("평점을 입력해주세요(1~5)"));
@@ -130,6 +120,8 @@ function deleteReview(reviewId){
     })
 }
 
+    getReviews();
 
- getReviews();
+
+
 

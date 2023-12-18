@@ -59,6 +59,8 @@ main {
     flex:1;
     margin-bottom: 15px;
     padding: 10px;
+    flex-direction:column;
+    
     > .date{
         width: 140px;
         padding: 5px;
@@ -67,11 +69,12 @@ main {
         box-shadow: rgba(99, 99, 99, 0.04) 0px 2px 50px;
         background-color: #ffffff;
         padding: 30px 20px;
+        margin-bottom: 10px;
         border-radius: 15px;
         flex:1;
         gap: 20px;
         display: flex;
-        flex-direction: row;
+        flex-direction:row;
         > .name {
             font-weight: 800;
         }
