@@ -28,8 +28,26 @@ function getSitter(){
     then(data=>{
         document.getElementById("sitterName").innerHTML=`${data.data.name} 님`;
         document.getElementById("sitterDescription").innerHTML=`${data.data.description}`;
+        console.log(data.data)
+        //
         const sitterThumbnail=document.getElementById("sitterThumbnail");
        
+        let sitterAverageGrade=0;
+        let sitterGrade=0;
+
+        data.data.review_for_sitters.map((el)=>{
+            sitterGrade+=el.grade;
+        });
+        
+        if(sitterGrade>=1){
+             sitterAverageGrade=sitterGrade/data.data.review_for_sitters.length
+        }
+        else{
+            sitterAverageGrade=0;
+        }
+
+        document.getElementById("averageGrade").innerHTML=`<h3>⭐${sitterAverageGrade}</h3>`;
+
         sitterThumbnail.src=data.data.thumbnail
 
         data.data.book_for_sitters.map((e)=>{
