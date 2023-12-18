@@ -13,14 +13,26 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    outline-style: solid;
-    outline-color: #c6a0f6;
+    /* outline-style: solid; */
 
     width: 100%;
+    max-width: 800px;
+    height: 500px;
     aspect-ratio: 5 / 3;
 
     padding-left: 60px;
     padding-right: 60px;
+
+
+    background-color: #fff;
+    border: solid 3px var(--primary);
+    box-shadow: 0 5px 0 var(--primary);
+
+    & h1{
+        font-size: 22px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
 
     & button {
         aspect-ratio: 9 / 2;
@@ -48,13 +60,32 @@
 .signinDataBox {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 30px;
+    width: 80%;
+    height: 50%;
+    > #inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        > .inputs {
+            gap: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    > #submits {
+        display: flex;
+        gap: 100px;
+        > button{
+            white-space: nowrap;
+            padding: 10px 50px;
+        }
+    }
 
-    width: 50%;
-
-    & > input {
+    & input {
         width: 100%;
         outline: none;
         padding: 12px 15px;
@@ -70,35 +101,4 @@
 
 .signinButton {
     width: 40%;
-}
-
-article {
-    width: 50%;
-    aspect-ratio: 5 / 3;
-    border-radius: 15px;
-    background-color: #fff;
-    border: solid 1px var(--primary);
-    box-shadow: 0 5px 0 var(--primary);
-    transition: all .5s;
-    transition-timing-function: cubic-bezier(0.11, 0.69, 0.21, 2);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    > h1{
-        font-size: 22px;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-}
-
-form > div {
-    display: flex;
-    gap: 100px;
-    > button{
-        white-space: nowrap;
-        padding: 10px 50px;
-    }
 }

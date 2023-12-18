@@ -7,7 +7,6 @@ const onLoginLoad = () => {
     }
 }
 
-
 const loadBooks = async () => {
     try {
         const response = await axios.get(server + "/api/books/me", {
@@ -15,11 +14,11 @@ const loadBooks = async () => {
                 Authorization: "Bearer " + token
             }
         });
-    
+
         const books = response.data.data;
-    
+
         console.log(response.data);
-    
+
         books.forEach((book) => {
             addBookToScrren(book);
         });
@@ -39,9 +38,9 @@ const addBookToScrren = (book) => {
     div.classList.add("reservation-box");
     div.id = book.id;
 
-    const date_ = book.date.split("-")[0] + "년 " + book.date.split("-")[1] + "월 " + book.date.split("-")[2].slice(0,2) + "일";
+    const date_ = book.date.split("-")[0] + "년 " + book.date.split("-")[1] + "월 " + book.date.split("-")[2].slice(0, 2) + "일";
 
-    div.innerHTML=`
+    div.innerHTML = `
         <div class="profile-pic"><img src="../img/test.png"></div>
         <div class="name">${book.sitter.name}</div>
         <div class="requirements">${book.requirement}</div>
@@ -72,7 +71,7 @@ const writeReview = (bookId) => {
                     Authorization: "Bearer " + token
                 }
             });
-        
+    
             const book = response.data.data;
 
             sitterId = book.sitterId;
@@ -90,7 +89,7 @@ const writeReview = (bookId) => {
                 sitterId,
                 comment,
                 grade
-            }, {
+              }, {
                 headers: {
                     Authorization: "Bearer " + token
                 }

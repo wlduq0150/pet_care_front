@@ -27,7 +27,7 @@
         <span></span>
     </div>
 </header>
-<nav>
+<nav class="hidden">
     <a id="sitterListPageLogOut" href="">log-out</a>
     <a id="sitterListPageSignUp" href="signup.html">sign-up</a>
     <a id="sitterListPageSignIn" href="signin.html">sign-in</a>
@@ -39,21 +39,25 @@
 <body>
     <div id="header"></div>
     <div class="container">
-        <article>
-            <div class="signin-box">
-                <form id = "signinDataBox" class="signinDataBox">
+        <div class="signin-box">
+            <form id = "signinDataBox" class="signinDataBox">
+                <div id="inputs">
+                    <div class="inputs">
                         <h1>Email</h1>
                         <input type="text" name="email" id="email-field" placeholder="example@email.com">
+                    </div>
+                    <div class="inputs">
                         <h1>Password</h1>
                         <input type="password" name="password" id="password-field" placeholder="password">         
-                    <div>
-                        <button type="submit" id="signupButton" class="signupButton">Sign Up</button>
-                        <button type="submit"  id="signinButton" class="signinButton">Sign In</button>
                     </div>
-                </form>
-                
+                </div>
+                <div id="submits">
+                    <button type="submit" id="signupButton" class="signupButton">Sign Up</button>
+                    <button type="submit"  id="signinButton" class="signinButton">Sign In</button>
+                </div>
+            </form>
+            
             </div>
-        </article>
     </div>
 </body>
     <script type="text/javascript" src="../js/signin.js"></script>
